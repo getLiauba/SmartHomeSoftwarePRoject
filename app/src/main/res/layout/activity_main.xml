@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:background="@drawable/blue_gradient_background">
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="16dp"
+            android:padding="16dp"
+            android:src="@drawable/lock2"></ImageView>
+
+        <EditText
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/editTextEmailAddress"
+            android:background="@android:color/transparent"
+            android:padding="12dp"
+            android:drawablePadding="12dp"
+            android:hint="Username"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white">
+
+        </EditText>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/white"></View>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/editTextPassword"
+            android:drawablePadding="16dp"
+            android:padding="16dp"
+            android:hint="Password"
+            android:textColorHint="@color/white"
+            android:background="@android:color/transparent"
+            android:maxLines="1"
+            android:layout_marginTop="4dp">
+        </EditText>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/white">
+        </View>
+
+        <Button
+            android:id="@+id/loginb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/green"
+            android:text="Login"
+            android:textAllCaps="false"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:textStyle="normal"
+            android:clickable="true"
+            android:textSize="18sp"
+            android:layout_marginTop="34dp">
+        </Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/ligthBlue"
+            android:text="Sign up"
+            android:textAllCaps="false"
+            android:textStyle="normal"
+            android:textColor="@color/white"
+            android:clickable="true"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp">
+        </Button>
+
+        <TextView
+            android:id="@+id/pButton"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:padding="16dp"
+            android:text="Forgot password?"
+            android:textColor="@color/white"></TextView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
