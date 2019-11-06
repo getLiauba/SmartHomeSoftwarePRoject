@@ -4,45 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home_screen">
+    tools:context=".home_screen"
+    android:background="@drawable/blue_gradient_background">
 
 
-    <LinearLayout
-        android:orientation="vertical"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="349dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Home Monitor System"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.006" />
+
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="18dp"
-        android:paddingRight="18dp"
-        android:background="@drawable/blue_gradient_background">
+        android:layout_height="4dp"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.099" />
 
-
-        <TextView
-            android:id="@+id/textView"
-            android:textColor="@color/white"
-            android:layout_width="349dp"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Home Monitor System"
-            android:textSize="35sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:layout_marginTop="-5dp"
-            android:layout_marginBottom="1dp"
-            android:background="@android:color/white" />
-
-        <Button
+    <Button
         android:id="@+id/button5"
         android:layout_width="359dp"
         android:layout_height="130dp"
@@ -76,7 +70,7 @@
         android:layout_width="359dp"
         android:layout_height="130dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="388dp"
         android:layout_marginEnd="8sp"
         android:background="@android:color/holo_green_light"
         android:text="Motion"
@@ -85,10 +79,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-
-
-
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
