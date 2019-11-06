@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 openhomescreen();
+                openNavbar();
 
 
             }
@@ -59,13 +60,18 @@ public class MainActivity extends AppCompatActivity {
     public void openhomescreen(){
 
         Intent intent2 = new Intent(this,home_screen.class);
-        Intent intent3 = new Intent(this,Navbar.class);
         startActivity(intent2);
-        startActivity(intent3);
-
+        finish();
 
     }
 
+    public void openNavbar() {
 
+        Intent intent3 = new Intent(this, Navbar.class);
+        startActivity(intent3);
+        finish();
+    }
+
+//Ur gay
 
 }
