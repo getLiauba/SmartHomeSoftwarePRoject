@@ -1,4 +1,4 @@
-package com.smarthomemonitorsystem;
+package com.smarthomemonitorsystem1;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.smarthomemonitorsystem", appContext.getPackageName());
+        assertEquals("com.smarthomemonitorsystem1", appContext.getPackageName());
     }
 }

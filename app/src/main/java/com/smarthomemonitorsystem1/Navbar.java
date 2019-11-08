@@ -1,4 +1,4 @@
-package com.smarthomemonitorsystem;
+package com.smarthomemonitorsystem1;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.smarthomemonitorsystem1.R;
 
 public class Navbar extends AppCompatActivity {
 

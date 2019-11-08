@@ -1,8 +1,10 @@
-package com.smarthomemonitorsystem;
+package com.smarthomemonitorsystem1;
 
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.smarthomemonitorsystem1.R;
 
 
 public class SplashScreen extends AppCompatActivity {

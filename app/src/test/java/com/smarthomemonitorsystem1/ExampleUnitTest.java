@@ -1,4 +1,4 @@
-package com.smarthomemonitorsystem;
+package com.smarthomemonitorsystem1;
 
 import org.junit.Test;
 
