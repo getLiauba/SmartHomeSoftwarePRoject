@@ -1,6 +1,7 @@
 package com.smarthomemonitorsystem1;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         SignInButton signInButton = findViewById(R.id.sign_in_button);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("LogIn");
         findAllViewsfromLayout();
         handleLogin();
 
