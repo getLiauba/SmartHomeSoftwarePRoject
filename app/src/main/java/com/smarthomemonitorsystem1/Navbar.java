@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.smarthomemonitorsystem1.R;
 
 public class Navbar extends AppCompatActivity {
 
@@ -38,7 +37,7 @@ public class Navbar extends AppCompatActivity {
                             break;
 
                         case R.id.nav_settings:
-                            selectedFragment = new Settings();
+                            selectedFragment = new Signup();
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();

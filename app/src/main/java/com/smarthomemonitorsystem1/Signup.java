@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import com.smarthomemonitorsystem1.R;
 
-public class Settings extends Fragment {
+public class Signup extends Fragment {
 
     @Nullable
     @Override

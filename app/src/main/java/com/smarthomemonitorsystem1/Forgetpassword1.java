@@ -1,5 +1,6 @@
 package com.smarthomemonitorsystem1;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -17,6 +18,8 @@ public class Forgetpassword1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgetpassword1);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Password Reset");
 
 
         plogin = (TextView) findViewById(R.id.pLogin);
