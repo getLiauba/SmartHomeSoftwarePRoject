@@ -18,14 +18,8 @@ public class home_screen extends Fragment {
         @Nullable
         @Override
         public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.activity_home_screen, container, false);
-
-
+            return inflater.inflate(R.layout.home_screen, container, false);
+            
         }
 
-
-
-
-
     }
-
