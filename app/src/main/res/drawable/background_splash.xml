@@ -7,7 +7,7 @@
             android:src="@drawable/lock2_2"></bitmap>
     </item>
     <item>
-        <bitmap android:src="@drawable/creators"
+        <bitmap android:src="@drawable/blue_gradient_background"
             android:gravity="top"></bitmap>
     </item>
 </layer-list>
