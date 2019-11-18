@@ -9,6 +9,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.View;
 import android.widget.Toast;
@@ -21,6 +22,10 @@ public class MotionScreen extends AppCompatActivity {
         setContentView(R.layout.activity_motion_screen);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        ViewPager viewPager = findViewById(R.id.viewPager);
+        ImageAdapter adapter = new ImageAdapter(this);
+        viewPager.setAdapter(adapter);
 
 
         FloatingActionButton HomeScreenButton = findViewById(R.id.HomeScreenButton);
