@@ -11,13 +11,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.Toast;
 
-public class TemperatureScreen extends AppCompatActivity {
+public class SettingsScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_temperature_screen);
+        setContentView(R.layout.activity_settings_screen);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -25,7 +26,7 @@ public class TemperatureScreen extends AppCompatActivity {
         HomeScreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent HomeScreenIntent = HomeScreen.makeIntent(TemperatureScreen.this);
+                Intent HomeScreenIntent = HomeScreen.makeIntent(SettingsScreen.this);
                 startActivity(HomeScreenIntent);
                 finish();
             }
@@ -35,15 +36,13 @@ public class TemperatureScreen extends AppCompatActivity {
         SettingsScreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent SettingsScreenIntent = SettingsScreen.makeIntent(TemperatureScreen.this);
-                startActivity(SettingsScreenIntent);
-                finish();
+                Toast.makeText(getApplicationContext(),"Already at the settings screen",Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     public static Intent makeIntent(Context context){
-        return new Intent(context, TemperatureScreen.class);
+        return new Intent(context, SettingsScreen.class);
     }
 
 }

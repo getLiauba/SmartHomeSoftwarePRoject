@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeScreen"
+    tools:context=".SmokeScreen"
     android:background="@drawable/blue_gradient_background">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -21,7 +21,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_home_screen" />
+    <include layout="@layout/content_smoke_screen" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/HomeScreenButton"

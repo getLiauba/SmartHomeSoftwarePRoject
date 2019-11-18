@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -46,7 +45,7 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Signup User");
+        actionBar.setTitle("SettingsScreen User");
         findAllViewsfromLayout();
         getDatabase();
 
@@ -173,7 +172,6 @@ public class Register extends AppCompatActivity {
             public void onSuccess(Void aVoid) {
                 Toast.makeText(getApplicationContext(), "Value was set. ", Toast.LENGTH_LONG).show();
                 gotohomeScreen();
-                openNavbar();
 
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -187,21 +185,15 @@ public class Register extends AppCompatActivity {
 
     private void gotohomeScreen() {
         // TODO : Start the read option After login
-        Intent intent20 = new Intent(getApplicationContext(), home_screen.class);
+        Intent intent20 = new Intent(getApplicationContext(), HomeScreen.class);
         startActivity(intent20);
         finish();
     }
 
-    public void openNavbar() {
-
-        Intent intent3 = new Intent(this, Navbar.class);
-        startActivity(intent3);
-        finish();
-    }
 
     public void openloginscreen() {
 
-        Intent intent50 = new Intent(this, MainActivity.class);
+        Intent intent50 = new Intent(this, LogInScreen.class);
         startActivity(intent50);
         finish();
     }

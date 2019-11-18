@@ -6,4 +6,5 @@
     <color name="white">#ffffff</color>
     <color name="green">#2fcc14</color>
     <color name="ligthBlue">#c1cff3</color>
+    <color name="black">#000000</color>
 </resources>

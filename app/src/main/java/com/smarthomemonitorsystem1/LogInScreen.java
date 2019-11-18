@@ -3,7 +3,6 @@ package com.smarthomemonitorsystem1;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -24,9 +22,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.smarthomemonitorsystem1.R;
 
-public class MainActivity extends AppCompatActivity {
+public class LogInScreen extends AppCompatActivity {
 
     private int RC_SIGN_IN = 6;
     private  String TAG;
@@ -38,21 +35,16 @@ public class MainActivity extends AppCompatActivity {
     private Button registerb;
     GoogleSignInClient mGoogleSignInClient;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SignInButton signInButton = findViewById(R.id.sign_in_button);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("LogIn");
+        SignInButton signInButton = findViewById(R.id.sign_in_button);
         findAllViewsfromLayout();
         handleLogin();
-
     }
-
-
 
         private void handleLogin() {
             // Initialize Firebase Auth
@@ -77,32 +69,21 @@ public class MainActivity extends AppCompatActivity {
                     openforgotpassword1();
                 }
             });
-
-
-
-
-
         }
 
         private void findAllViewsfromLayout() {
 
-            ptext = (TextView) findViewById(R.id.pButton);
-            loginb = (Button) findViewById(R.id.loginb);
+            ptext = findViewById(R.id.pButton);
+            loginb = findViewById(R.id.loginb);
             email = findViewById(R.id.email1);
             password = findViewById(R.id.password1);
             registerb = findViewById(R.id.registerb);
-
-
-
         }
-
-
-
 
         private void loginUser(String email, String password){
             // TODO: Login with Email and Password on Firebase.
             if (email.length()==0 || password.length()==0){
-                Toast.makeText(getApplicationContext(), "Email and password cannot be empty",
+                Toast.makeText(getApplicationContext(), "Email and/or password cannot be empty",
                         Toast.LENGTH_LONG).show();
                 return;
             }
@@ -115,88 +96,50 @@ public class MainActivity extends AppCompatActivity {
                                 Log.d("MapleLeaf", "signInWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
                               //  setButtonStatus(true);
-                                openhomescreen();
-                                openNavbar();
+                                Intent mainScreenIntent = HomeScreen.makeIntent(LogInScreen.this);
+                                startActivity(mainScreenIntent);
+                                finish();
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Log.w("MapleLeaf", "signInWithEmail:failure", task.getException());
                                 Toast.makeText(getApplicationContext(), "Authentication failed.",
                                         Toast.LENGTH_LONG).show();
                             }
-
-                            // ...
                         }
                     });
-
-
-
-
-
-
-
             GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                     .requestIdToken(getString(R.string.default_web_client_id))
                     .requestEmail()
                     .build();
-
             mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
-
-
-
-
-
-
-
     }
+
 @Override
     protected void onStart() {
         super.onStart();
-
-    GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-    updateUI(account);
-        
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+        updateUI(account);
     }
 
     private void updateUI(GoogleSignInAccount account) {
     }
 
     public void openforgotpassword1(){
-
-        Intent intent1 = new Intent(this,Forgetpassword1.class);
-        startActivity(intent1);
-        finish();
-
-
-      }
-
-    public void openhomescreen(){
-
-        Intent intent2 = new Intent(this,home_screen.class);
-        startActivity(intent2);
-        finish();
-
-    }
-
-    public void openNavbar() {
-
-        Intent intent3 = new Intent(this, Navbar.class);
-        startActivity(intent3);
+        Intent PasswordResetIntent = new Intent(LogInScreen.this,Forgetpassword1.class);
+        startActivity(PasswordResetIntent);
         finish();
     }
+
     public void openregister() {
-
-        Intent intent4 = new Intent(this, Register.class);
-        startActivity(intent4);
+        Intent AcountCreationIntent = new Intent(LogInScreen.this, Register.class);
+        startActivity(AcountCreationIntent);
         finish();
     }
-
 
     private void signIn() {
-            Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-            startActivityForResult(signInIntent, RC_SIGN_IN);
-        }
-
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -214,7 +157,6 @@ public class MainActivity extends AppCompatActivity {
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-
             // Signed in successfully, show authenticated UI.
             updateUI(account);
         } catch (ApiException e) {
@@ -224,6 +166,4 @@ public class MainActivity extends AppCompatActivity {
             updateUI(null);
         }
     }
-        
-
 }

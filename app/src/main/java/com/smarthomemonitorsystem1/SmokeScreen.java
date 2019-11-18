@@ -12,12 +12,12 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 
-public class TemperatureScreen extends AppCompatActivity {
+public class SmokeScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_temperature_screen);
+        setContentView(R.layout.activity_smoke_screen);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -25,7 +25,7 @@ public class TemperatureScreen extends AppCompatActivity {
         HomeScreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent HomeScreenIntent = HomeScreen.makeIntent(TemperatureScreen.this);
+                Intent HomeScreenIntent = HomeScreen.makeIntent(SmokeScreen.this);
                 startActivity(HomeScreenIntent);
                 finish();
             }
@@ -35,7 +35,7 @@ public class TemperatureScreen extends AppCompatActivity {
         SettingsScreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent SettingsScreenIntent = SettingsScreen.makeIntent(TemperatureScreen.this);
+                Intent SettingsScreenIntent = SettingsScreen.makeIntent(SmokeScreen.this);
                 startActivity(SettingsScreenIntent);
                 finish();
             }
@@ -43,7 +43,7 @@ public class TemperatureScreen extends AppCompatActivity {
     }
 
     public static Intent makeIntent(Context context){
-        return new Intent(context, TemperatureScreen.class);
+        return new Intent(context, SmokeScreen.class);
     }
 
 }

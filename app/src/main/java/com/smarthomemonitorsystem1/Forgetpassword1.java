@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.smarthomemonitorsystem1.R;
-
 public class Forgetpassword1 extends AppCompatActivity {
 
     private TextView plogin;
@@ -39,7 +37,7 @@ public class Forgetpassword1 extends AppCompatActivity {
 
     public void openMainActivity(){
 
-        Intent intent1 = new Intent(this,MainActivity.class);
+        Intent intent1 = new Intent(this, LogInScreen.class);
         startActivity(intent1);
 
 

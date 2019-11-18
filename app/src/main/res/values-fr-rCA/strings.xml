@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Système Intelligent de Surveillance de la Maison</string>
+    <string name="humidityValue">Humidité</string>
+    <string name="temperatureScreenTitle">" La Température et la Humidité"</string>
+    <string name="temperatureValue">Température</string>
+    <string name="title_notifications">Notification</string>
+    <string name="password">Mot de Passe</string>
+    <string name="login">Ouverture de Session</string>
+    <string name="re_enter_password">Entrer de nouveau votre mot de passe</string>
+    <string name="username">Nom d\'utilisateur</string>
+    <string name="email">E-mail</string>
+    <string name="create_account">Créer compte</string>
+    <string name="already_have_an_account">Ont déjà un compte?</string>
+    <string name="add_a_divice">Ajouter un appareil</string>
+    <string name="settings">Paramètres</string>
+    <string name="new_password">Nouveau Mot de Passe</string>
+    <string name="language">Langue</string>
+    <string name="log_out">Déconnexion</string>
+    <string name="motion">Mouvement</string>
+    <string name="smoke">Fumée</string>
+</resources>
