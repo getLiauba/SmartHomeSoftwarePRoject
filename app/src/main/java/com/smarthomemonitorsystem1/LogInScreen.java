@@ -95,7 +95,9 @@ public class LogInScreen extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d("MapleLeaf", "signInWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
-                              //  setButtonStatus(true);
+
+
+
                                 Intent mainScreenIntent = HomeScreen.makeIntent(LogInScreen.this);
                                 startActivity(mainScreenIntent);
                                 finish();

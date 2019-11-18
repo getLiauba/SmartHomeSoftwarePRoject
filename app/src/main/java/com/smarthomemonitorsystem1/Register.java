@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -23,11 +24,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class Register extends AppCompatActivity {
 
-    private String numPhotos;
-    private FirebaseAuth mAuth;
     private EditText username;
     private EditText password;
     private EditText repassword;
@@ -35,10 +36,16 @@ public class Register extends AppCompatActivity {
     private EditText email;
     private DatePicker picker;
     private Button register1;
+
     private FirebaseDatabase database;
+    private int numPhotos = 0;
+    private FirebaseAuth mAuth;
     private DatabaseReference myRef;
     DataStructure mData;
 
+    FirebaseAuth fAuth;
+
+    Member member;
 
 
     @Override
@@ -47,8 +54,16 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("SettingsScreen User");
+
         findAllViewsfromLayout();
+
         getDatabase();
+
+
+        member = new Member();
+
+        fAuth = FirebaseAuth.getInstance();
+
 
         register1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,8 +87,10 @@ public class Register extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
-        String path = "userSignup/" + mAuth.getUid();  // Write to the user account.
-        myRef = database.getReference(path);
+        myRef = FirebaseDatabase.getInstance().getReference().child("Member/");
+
+        //String path = "userSignup/" + mAuth.getUid();  // Write to the user account.
+        System.out.println("The UID is ------------------------" + mAuth.getUid());
 
     }
 
@@ -85,26 +102,23 @@ public class Register extends AppCompatActivity {
         register1 = findViewById(R.id.createA);
         picker = findViewById(R.id.dob);
         ltext = findViewById(R.id.logintext);
-
-
     }
-
-
-
 
     private void startRegisteration() {
         // TODO: Create new users on Firebase.
 
         int month = picker.getMonth()+1;
 
-        String registerUsername = String.valueOf(username.getText());
-        String registerdob = String.valueOf(picker.getDayOfMonth()+"/"+month+"/"+picker.getYear());
-        String registerEmail = String.valueOf(email.getText());
-        String registerPassword1 = String.valueOf(password.getText());
-        String registerPassword2 = String.valueOf(repassword.getText());
+        final String registerUsername = String.valueOf(username.getText());
+        final String registerdob = String.valueOf(picker.getDayOfMonth()+"/"+month+"/"+picker.getYear());
+        final String registerEmail = String.valueOf(email.getText());
+        final String registerPassword1 = String.valueOf(password.getText());
+        final String registerPassword2 = String.valueOf(repassword.getText());
+        //------End of getting values
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
+       // FirebaseDatabase database = FirebaseDatabase.getInstance();
+       // DatabaseReference myRef = database.getReference("message");
+
         if (registerEmail.length() == 0 || registerPassword1.length() == 0 || registerPassword2.length() == 0 || registerdob.length() == 0 || registerUsername.length() == 0 ){
             Toast.makeText(getApplicationContext(), "No box can be empty",
                     Toast.LENGTH_LONG).show();
@@ -115,47 +129,47 @@ public class Register extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "The password does't match, cannot continue",
                     Toast.LENGTH_LONG).show();
         }
+        else if (registerPassword1.equals(registerPassword2)) {
 
-        mAuth = FirebaseAuth.getInstance();
+            fAuth.createUserWithEmailAndPassword(registerEmail,registerPassword1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
 
-        mAuth.createUserWithEmailAndPassword(registerEmail, registerPassword1)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("MapleLeaf", "createUserWithEmail:success");
-                            Toast.makeText(getApplicationContext(), "Create new user worked",
-                                    Toast.LENGTH_LONG).show();
-                            FirebaseUser user = mAuth.getCurrentUser();
-
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("MapleLeaf", "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(getApplicationContext(), "Create new user failed.",
-                                    Toast.LENGTH_LONG).show();
-
-                        }
+                    if (task.isSuccessful()) {
+                        createData(registerUsername, registerdob, registerEmail, registerPassword1, registerPassword2);
+                        gotohomeScreen();
                     }
-                });
-        DataStructure mData = createData(registerUsername, registerPassword1, registerPassword2, registerEmail,registerdob);
-        writeData(mData);
+                }
+            });
+
+        }
 
     }
 
 
-    private DataStructure createData(String username, String password, String password2, String email, String dob){
-        // TODO: Get the timestamp
-        Long time = System.currentTimeMillis()/1000;
-        String timestamp = time.toString();
-        return new DataStructure(String.valueOf(username),
-                String.valueOf(password),
-                String.valueOf(password2),
-                String.valueOf(email),
-                String.valueOf(dob),
-                timestamp);
+    private void  createData(String username, String password, String password2, String email, String dob){
 
+        database = FirebaseDatabase.getInstance();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+        myRef = FirebaseDatabase.getInstance().getReference().child("Member/");
+
+        //String path = "userSignup/" + mAuth.getUid();  // Write to the user account.
+        System.out.println("The UID is ------------------------" + mAuth.getUid());
+
+
+
+        member.setDob(dob);
+        member.setEmail(email);
+        member.setPassword(password);
+        member.setRepassword(password2);
+        member.setUsername(username);
+        member.setNumPhoto(1);
+       // myRef.push().setValue(member);
+        if (mAuth.getUid().toString() != null){
+
+            myRef.child("" + mAuth.getUid().toString()).setValue(member);
+        }
     }
 
     private void writeData(DataStructure mData) {
@@ -182,9 +196,9 @@ public class Register extends AppCompatActivity {
         });
     }
 
-
     private void gotohomeScreen() {
         // TODO : Start the read option After login
+        getDatabase();
         Intent intent20 = new Intent(getApplicationContext(), HomeScreen.class);
         startActivity(intent20);
         finish();
@@ -197,6 +211,5 @@ public class Register extends AppCompatActivity {
         startActivity(intent50);
         finish();
     }
-
 
 }
