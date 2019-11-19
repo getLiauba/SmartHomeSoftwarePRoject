@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,13 +18,6 @@ import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,22 +25,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MotionScreen extends AppCompatActivity {
 
 
     private Uri mImageUri;
-
-    private StorageReference mStorageRef;
-    private DatabaseReference mDatabaseRef;
-
-    List<Uploads> myuploads;
-
-   // private List
-
     private String[] imageUrls = new String[] {
       "https://cdn.pixabay.com/photo/2016/11/11/23/34/cat-1817970_960_720.jpg",
             "https://cdn.pixabay.com/photo/2017/12/21/12/26/glowworm-3031704_960_720.jpg",
@@ -57,7 +41,14 @@ public class MotionScreen extends AppCompatActivity {
 
 
     ViewPager viewPager;
+
     ImageAdapter adpater;
+
+
+    private StorageReference mStorageRef;
+    private DatabaseReference mDatabaseRef;
+
+    List<Uploads> myuploads;
 
 
     @Override
@@ -68,42 +59,43 @@ public class MotionScreen extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mStorageRef = FirebaseStorage.getInstance().getReference("");
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference();
+
+        viewPager = findViewById(R.id.viewPager);
 
 
-         viewPager = findViewById(R.id.viewPager);
+        myuploads = new ArrayList<>();
 
-        //ImageAdapter adpater = new ImageAdapter(this,"This is a string",myuploads);
-
-
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
 
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot postSnapShot : dataSnapshot.getChildren()) {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    System.out.println("-----------------------------------SnapShot loop -----------------------------------------------------");
 
-                    //Uploads upload = postSnapShot.getValue(Uploads.class);
-                    //myuploads.add(upload);
 
+                    Uploads upload = new Uploads();
+                    upload.setmImageUrl(postSnapshot.getValue().toString());
+
+                //    Uploads upload = postSnapshot.getValue(Uploads.class);
+
+                    myuploads.add(upload);
+
+                    adpater = new ImageAdapter(MotionScreen.this, myuploads);
+
+                    viewPager.setAdapter(adpater);
 
                 }
-
-               // adpater = new ImageAdapter(MotionScreen.this,myuploads);
-                //viewPager.setAdapter(adpater);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                Toast.makeText(MotionScreen.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MotionScreen.this, databaseError.getMessage(),Toast.LENGTH_SHORT);
 
             }
         });
-
-
-
 
         FloatingActionButton HomeScreenButton = findViewById(R.id.HomeScreenButton);
         HomeScreenButton.setOnClickListener(new View.OnClickListener() {

@@ -26,20 +26,17 @@ import java.util.List;
 
 public class ImageAdapter extends PagerAdapter {
 
-    private Context context;
+    private Context context1;
 
     private String[] imageUrls;
 
     private List<Uploads> mUploads;
 
 
-    ImageAdapter(Context context, List<Uploads> uploads) {
-        this .context = context;
-
-        //this.imageUrls = imageUrls;
-        mUploads = uploads;
+    public ImageAdapter(Context context, List<Uploads> uploads) {
+        context1 = context;
+        mUploads =  uploads;
     }
-
 
     @Override
     public int getCount() {
@@ -56,20 +53,25 @@ public class ImageAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
         Uploads uploadCurrent = mUploads.get(position);
-        ImageView imageview = new ImageView(context);
+        ImageView imageview = new ImageView(context1);
 
-        Picasso.get()
-                .load(uploadCurrent.getmImageUrl())
+
+        Picasso.get().load(uploadCurrent.getmImageUrl())
                 .fit()
                 .centerCrop().into(imageview);
 
 
-     //   Picasso.get()
-       //         .load(imageUrls[position])
-         //       .fit()
-           //     .centerCrop().into(imageview);
+       // Picasso.get()
+       //         .load(mUploads.get(position).getmImageUrl()).fit().centerCrop().into(imageview);
 
-        container.addView(imageview);
+
+      //  Picasso.get()
+      //          .load(uploadCurrent.getmImageUrl())
+      //          .fit()
+      //          .centerCrop().into(imageview);
+
+
+        container.addView(imageview,0);
 
         return imageview;
     }
@@ -77,7 +79,7 @@ public class ImageAdapter extends PagerAdapter {
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
 
-        container.removeView((View) object);
+        container.removeView((ImageView) object);
 
     }
 }
