@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class SettingsScreen extends AppCompatActivity {
@@ -37,6 +38,16 @@ public class SettingsScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"Already at the settings screen",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        Button LogoutButton = findViewById(R.id.Logout_Button);
+        LogoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent LogoutIntent = LogInScreen.makeIntent(SettingsScreen.this);
+                startActivity(LogoutIntent);
+                finish();
             }
         });
     }

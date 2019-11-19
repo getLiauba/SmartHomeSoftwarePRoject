@@ -3,6 +3,8 @@ package com.smarthomemonitorsystem1;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -167,5 +169,9 @@ public class LogInScreen extends AppCompatActivity {
             Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
             updateUI(null);
         }
+    }
+
+    public static Intent makeIntent(Context context){
+        return new Intent(context, LogInScreen.class);
     }
 }
