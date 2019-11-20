@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -25,8 +26,8 @@ import java.util.ArrayList;
 public class TemperatureScreen extends AppCompatActivity {
     private static final String TAG = "TemperatureScreen";
     private String userID;
-    private ListView temp;
-    private ListView hum;
+    private TextView temp;
+    private TextView hum;
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authStateListener;
@@ -118,10 +119,11 @@ public class TemperatureScreen extends AppCompatActivity {
             String hum_val = ds.getValue().toString();
             Temp_UserInformation userInformationHum = new Temp_UserInformation();
             userInformationHum.setHumidity("" + hum_val);
-            ArrayList<String> arrayHum = new ArrayList<>();
-            arrayHum.add(userInformationHum.getHumidity());
-            ArrayAdapter adapterHum = new ArrayAdapter(TemperatureScreen.this,android.R.layout.simple_list_item_1,arrayHum);
-            hum.setAdapter(adapterHum);
+            hum.setText(userInformationHum.getHumidity().toString());
+            //ArrayList<String> arrayHum = new ArrayList<>();
+           // arrayHum.add(userInformationHum.getHumidity());
+            //ArrayAdapter adapterHum = new ArrayAdapter(TemperatureScreen.this,android.R.layout.simple_list_item_1,arrayHum);
+            //hum.setAdapter(adapterHum);
         }
     }
 
@@ -145,10 +147,11 @@ public class TemperatureScreen extends AppCompatActivity {
             String temp_val = ds.getValue().toString();
             Temp_UserInformation userInformationTemp =  new Temp_UserInformation();
             userInformationTemp.setTemperature("" + temp_val);
-            ArrayList<String> arrayTemp = new ArrayList<>();
-            arrayTemp.add(userInformationTemp.getTemperature());
-            ArrayAdapter adapterTemp = new ArrayAdapter(TemperatureScreen.this, android.R.layout.simple_list_item_1,arrayTemp);
-            temp.setAdapter(adapterTemp);
+            temp.setText(userInformationTemp.getTemperature().toString());
+            //ArrayList<String> arrayTemp = new ArrayList<>();
+            //arrayTemp.add(userInformationTemp.getTemperature());
+            //ArrayAdapter adapterTemp = new ArrayAdapter(TemperatureScreen.this, android.R.layout.simple_list_item_1,arrayTemp);
+            //temp.setAdapter(adapterTemp);
         }
     }
 
