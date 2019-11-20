@@ -114,6 +114,7 @@ public class TemperatureScreen extends AppCompatActivity {
 
     private void showDataHum(DataSnapshot dataSnapshot) {
         for(DataSnapshot ds : dataSnapshot.getChildren()){
+            toastMessage("Datasnapshot is getting new Humidity reading.");
             String hum_val = ds.getValue().toString();
             Temp_UserInformation userInformationHum = new Temp_UserInformation();
             userInformationHum.setHumidity("" + hum_val);
@@ -140,23 +141,14 @@ public class TemperatureScreen extends AppCompatActivity {
 
     private void showDataTemp(DataSnapshot dataSnapshot) {
         for(DataSnapshot ds : dataSnapshot.getChildren()){
-
-            toastMessage("Datasnapshot is getting children");
+            toastMessage("Datasnapshot is getting new Temperature reading.");
             String temp_val = ds.getValue().toString();
-
             Temp_UserInformation userInformationTemp =  new Temp_UserInformation();
-
             userInformationTemp.setTemperature("" + temp_val);
-
             ArrayList<String> arrayTemp = new ArrayList<>();
-
             arrayTemp.add(userInformationTemp.getTemperature());
-
             ArrayAdapter adapterTemp = new ArrayAdapter(TemperatureScreen.this, android.R.layout.simple_list_item_1,arrayTemp);
-
             temp.setAdapter(adapterTemp);
-
-
         }
     }
 

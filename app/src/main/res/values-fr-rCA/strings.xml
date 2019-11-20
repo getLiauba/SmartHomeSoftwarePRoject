@@ -22,4 +22,19 @@
     <string name="submit">soumettre</string>
     <string name="change_password">Changer le mot de passe</string>
     <string name="home_monitor_system">Système de Surveillancer de la Maison</string>
+    <string name="next">Suivant</string>
+    <string name="remember_account">Rapelle compte</string>
+    <string name="forgot_password">Oublié le mot de passe</string>
+    <string name="back">Returner</string>
+    <string name="image">Image</string>
+    <string name="instructions_sent_to_email">Instructions a été envoyé a votre e-mail</string>
+    <string name="smoke_status">Fumée état</string>
+    <string name="title_activity_smoke_screen">Fumée écran</string>
+    <string name="title_activity_temperature_screen">Température écran</string>
+    <string name="title_activity_settings_screen">Paramètres écran</string>
+    <string name="title_activity_motion_screen">Mouvment écran</string>
+    <string name="title_activity_home_screen">Écran principal</string>
+    <string name="title_activity_change_password_screen">Écran pour changer le mot de passe</string>
+    <string name="title_activity_final_change_password_screen">Écran pour changer le mot de passe</string>
+    <string name="title_activity_add_device_screen">Écran pour ajouter un appareil</string>
 </resources>

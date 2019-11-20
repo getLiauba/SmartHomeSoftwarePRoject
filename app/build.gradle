@@ -22,9 +22,8 @@ android {
 
 repositories {
 
-    maven { url "https://jitpack.io"}
+    maven { url "https://jitpack.io" }
 }
-
 
 
 dependencies {
@@ -51,7 +50,6 @@ dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.+'
 
 }
-
 
 
 apply plugin: 'com.google.gms.google-services'

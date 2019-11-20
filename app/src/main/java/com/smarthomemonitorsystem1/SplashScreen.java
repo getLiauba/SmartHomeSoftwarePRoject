@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstantState){
-        setTheme(R.style.SpalshTheme);
+        setTheme(R.style.SplashTheme);
         super.onCreate(savedInstantState);
         Intent intent = new Intent(this, LogInScreen.class);
         startActivity(intent);

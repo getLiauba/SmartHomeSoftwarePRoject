@@ -12,6 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SettingsScreen extends AppCompatActivity {
@@ -25,22 +26,32 @@ public class SettingsScreen extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Button LanEng = findViewById(R.id.LanEng);
-        LanEng.setOnClickListener(new View.OnClickListener() {
+//        Button LanEng = findViewById(R.id.LanEng);
+//        LanEng.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+
+//            }
+//        });
+
+        Button addButton = findViewById(R.id.add_button);
+        addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent AddDeviceIntent = AddDeviceScreen.makeIntent(SettingsScreen.this);
+                startActivity(AddDeviceIntent);
+                finish();
             }
         });
 
-        Button LanFrn = findViewById(R.id.LanFrn);
-        LanFrn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LanguageHelper.setLocale(SettingsScreen.this, mLanguageCode);
-                recreate();
-            }
-        });
+        //Button LanFrn = findViewById(R.id.LanFrn);
+        //LanFrn.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            //public void onClick(View v) {
+                //LanguageHelper.setLocale(SettingsScreen.this, mLanguageCode);
+                //recreate();
+            //}
+        //});
 
         FloatingActionButton HomeScreenButton = findViewById(R.id.HomeScreenButton);
         HomeScreenButton.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +77,16 @@ public class SettingsScreen extends AppCompatActivity {
             public void onClick(View v) {
                 Intent LogoutIntent = LogInScreen.makeIntent(SettingsScreen.this);
                 startActivity(LogoutIntent);
+                finish();
+            }
+        });
+
+        TextView changePassword = findViewById(R.id.PaswordText);
+        changePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ChangePasswordIntent = ChangePasswordScreen.makeIntent(SettingsScreen.this);
+                startActivity(ChangePasswordIntent);
                 finish();
             }
         });

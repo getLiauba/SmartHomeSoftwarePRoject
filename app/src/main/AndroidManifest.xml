@@ -13,7 +13,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".finalForgotPass"></activity>
+        <activity
+            android:name=".AddDeviceScreen"
+            android:label="@string/title_activity_add_device_screen"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".FinalChangePasswordScreen"
+            android:label="@string/title_activity_final_change_password_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ChangePasswordScreen"
+            android:label="@string/title_activity_change_password_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".finalForgotPass" />
         <activity
             android:name=".SettingsScreen"
             android:label="@string/title_activity_settings_screen"
@@ -37,7 +49,7 @@
         <activity android:name=".Register" />
         <activity
             android:name=".SplashScreen"
-            android:theme="@style/SpalshTheme">
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

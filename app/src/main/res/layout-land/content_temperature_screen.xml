@@ -49,10 +49,11 @@
         android:id="@+id/actual_gas"
         android:layout_width="250dp"
         android:layout_height="45dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="88dp"
         android:textAllCaps="false"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toEndOf="@+id/TempStat"
         app:layout_constraintTop_toBottomOf="@+id/Title_Underline5" />
 
@@ -60,8 +61,8 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="112dp"
         android:text="@string/humidityValue"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -70,14 +71,14 @@
         app:layout_constraintTop_toBottomOf="@+id/TempStat" />
 
     <ListView
+        android:id="@+id/actual_hum"
         android:layout_width="250dp"
         android:layout_height="45dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="120dp"
         android:textAllCaps="false"
         android:textSize="25sp"
-        android:id="@+id/actual_hum"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.566"
+        app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/actual_gas" />
 

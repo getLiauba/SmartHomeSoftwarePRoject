@@ -22,19 +22,31 @@
     <string name="submit">Submit</string>
     <string name="change_password">Change Password</string>
     <string name="log_out">Log Out</string>
+    <string name="remember_account">Remember Account?</string>
+    <string name="next">Next</string>
+    <string name="smoke">Smoke</string>
+    <string name="motion">Motion</string>
+    <string name="plus" translatable="false">+</string>
+    <string name="lan_english" translatable="false">English</string>
+    <string name="lan_french" translatable="false">Français</string>
+    <string name="home_monitor_system">Home Monitor System</string>
     <string-array name="languages">
         <item>English</item>
         <item>française</item>
     </string-array>
     <string name="title_activity_home_screen">HomeScreen</string>
-    <string name="smoke">Smoke</string>
-    <string name="motion">Motion</string>
     <string name="title_activity_motion_screen">MotionScreen</string>
     <string name="title_activity_smoke_screen">SmokeScreen</string>
     <string name="title_activity_temperature_screen">TemperatureScreen</string>
     <string name="title_activity_settings_screen">SettingsScreen</string>
-    <string name="plus" translatable="false">+</string>
-    <string name="lan_english" translatable="false">English</string>
-    <string name="lan_french" translatable="false">Français</string>
-    <string name="home_monitor_system">Home Monitor System</string>
+    <string name="title_activity_change_password_screen">ChangePasswordScreen</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="title_activity_final_change_password_screen">ChangePasswordScreen</string>
+    <string name="instructions_sent_to_email">Instructions sent to Email</string>
+    <string name="image">Image</string>
+    <string name="back">Back</string>
+    <string name="smoke_status">Smoke Status:</string>
+    <string name="title_activity_add_device_screen">AddDeviceScreen</string>
 </resources>
+
+

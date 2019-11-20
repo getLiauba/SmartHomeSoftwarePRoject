@@ -60,44 +60,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Title_Underline5" />
 
+
     <TextView
         android:id="@+id/PaswordText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="112dp"
+        android:clickable="true"
+        android:focusable="true"
         android:text="@string/change_password"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_device" />
-
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="158dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="52dp"
-        android:ems="10"
-        android:hint="@string/new_password"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toEndOf="@+id/PaswordText"
-        app:layout_constraintTop_toBottomOf="@+id/add_button" />
-
-    <TextView
-        android:id="@+id/LanguageText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="52dp"
-        android:text="@string/language"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PaswordText" />
 
     <Button
         android:id="@+id/Logout_Button"
@@ -108,39 +85,41 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/submitButton"
-        app:layout_constraintVertical_bias="0.156" />
-
-    <Button
-        android:id="@+id/submitButton"
-        android:layout_width="114dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="52dp"
-        android:text="@string/submit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LanguageText" />
+        app:layout_constraintTop_toBottomOf="@+id/LanguageText"
+        app:layout_constraintVertical_bias="0.45" />
 
     <Button
         android:id="@+id/LanEng"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="120dp"
         android:layout_marginEnd="64dp"
         android:text="@string/lan_english"
         app:layout_constraintEnd_toStartOf="@+id/LanFrn"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/PaswordText" />
 
     <Button
         android:id="@+id/LanFrn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="48dp"
         android:text="@string/lan_french"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/PaswordText" />
+
+    <TextView
+        android:id="@+id/LanguageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="136dp"
+        android:text="@string/language"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PaswordText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
