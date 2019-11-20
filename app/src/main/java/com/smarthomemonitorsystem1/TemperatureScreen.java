@@ -40,7 +40,7 @@ public class TemperatureScreen extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        temp = findViewById(R.id.actual_temp);
+        temp = findViewById(R.id.actual_gas);
         hum = findViewById(R.id.actual_hum);
 
         auth = FirebaseAuth.getInstance();
