@@ -74,7 +74,6 @@ public class MotionScreen extends AppCompatActivity {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     System.out.println("-----------------------------------SnapShot loop -----------------------------------------------------");
 
-
                     Uploads upload = new Uploads();
                     upload.setmImageUrl(postSnapshot.getValue().toString());
 
