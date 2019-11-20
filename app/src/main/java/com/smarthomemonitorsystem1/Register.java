@@ -147,24 +147,25 @@ public class Register extends AppCompatActivity {
     }
 
 
-    private void  createData(String username, String password, String password2, String email, String dob){
+    private void  createData(String username, String dob, String email, String pass1, String pass2){
 
         database = FirebaseDatabase.getInstance();
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
-
+        Long time = System.currentTimeMillis()/1000;
+        String timestamp = time.toString();
         myRef = FirebaseDatabase.getInstance().getReference().child("Member/");
 
         //String path = "userSignup/" + mAuth.getUid();  // Write to the user account.
         System.out.println("The UID is ------------------------" + mAuth.getUid());
 
 
-
-        member.setDob(dob);
-        member.setEmail(email);
-        member.setPassword(password);
-        member.setRepassword(password2);
         member.setUsername(username);
+        member.setEmail(email);
+        member.setPassword(pass1);
+        member.setDob(dob);
+        member.setTimestamp(timestamp);
         member.setNumPhoto(1);
+
        // myRef.push().setValue(member);
         if (mAuth.getUid().toString() != null){
 
@@ -172,29 +173,7 @@ public class Register extends AppCompatActivity {
         }
     }
 
-    private void writeData(DataStructure mData) {
 
-        // Select one of the following methods to update the data.
-        // 1. To set the value of data
-        // myRef.setValue(mData);
-        // 2. To create a new node on database.
-        //  myRef.push().setValue(mData);
-        // TODO: Write the data to the database.
-        // 3. To create a new node on database and detect if the writing is successful.
-        myRef.push().setValue(mData).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Toast.makeText(getApplicationContext(), "Value was set. ", Toast.LENGTH_LONG).show();
-                gotohomeScreen();
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(), "Writing failed", Toast.LENGTH_LONG).show();
-            }
-        });
-    }
 
     private void gotohomeScreen() {
         // TODO : Start the read option After login

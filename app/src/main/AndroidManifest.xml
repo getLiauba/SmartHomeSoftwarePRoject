@@ -13,10 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".finalForgotPass"></activity>
         <activity
             android:name=".SettingsScreen"
             android:label="@string/title_activity_settings_screen"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".TemperatureScreen"
             android:label="@string/title_activity_temperature_screen"

@@ -7,6 +7,7 @@ public class Member {
     private String repassword;
     private String email;
     private String dob;
+    private String timestamp;
 
     private int numPhoto;
 
@@ -38,6 +39,8 @@ public class Member {
         this.email = email;
     }
 
+    public void setTimestamp(String timestamp) { this.timestamp = timestamp; }
+
     public void setDob(String dob) {
         this.dob = dob;
     }
@@ -49,6 +52,8 @@ public class Member {
     public String getRepassword() {
         return repassword;
     }
+
+    public String getTimestamp() {return timestamp;}
 
     public String getEmail() {
         return email;
