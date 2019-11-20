@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Smart Home Monitor System</string>
     <string name="title_activity_navbar1" translatable="false">Navbar1</string>
@@ -33,5 +34,7 @@
     <string name="title_activity_temperature_screen">TemperatureScreen</string>
     <string name="title_activity_settings_screen">SettingsScreen</string>
     <string name="plus" translatable="false">+</string>
-    <string name="logout">logout</string>
+    <string name="lan_english" translatable="false">English</string>
+    <string name="lan_french" translatable="false">Français</string>
+    <string name="home_monitor_system">Home Monitor System</string>
 </resources>

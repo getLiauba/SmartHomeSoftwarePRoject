@@ -114,7 +114,7 @@
         android:id="@+id/Logout_Button"
         android:layout_width="160dp"
         android:layout_height="37dp"
-        android:text="@string/logout"
+        android:text="@string/log_out"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

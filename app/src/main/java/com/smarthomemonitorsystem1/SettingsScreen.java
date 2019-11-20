@@ -16,12 +16,31 @@ import android.widget.Toast;
 
 public class SettingsScreen extends AppCompatActivity {
 
+    private String mLanguageCode = "fr";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_screen);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Button LanEng = findViewById(R.id.LanEng);
+        LanEng.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        Button LanFrn = findViewById(R.id.LanFrn);
+        LanFrn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LanguageHelper.setLocale(SettingsScreen.this, mLanguageCode);
+                recreate();
+            }
+        });
 
         FloatingActionButton HomeScreenButton = findViewById(R.id.HomeScreenButton);
         HomeScreenButton.setOnClickListener(new View.OnClickListener() {

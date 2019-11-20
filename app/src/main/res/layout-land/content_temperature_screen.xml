@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/Title_Underline5" />
 
     <ListView
-        android:id="@+id/actual"
+        android:id="@+id/actual_temp"
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:layout_marginTop="34dp"
@@ -75,9 +75,10 @@
         android:layout_marginTop="34dp"
         android:textAllCaps="false"
         android:textSize="25sp"
+        android:id="@+id/actual_hum"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.566"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/actual" />
+        app:layout_constraintTop_toBottomOf="@+id/actual_temp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

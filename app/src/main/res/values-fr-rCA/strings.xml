@@ -16,9 +16,10 @@
     <string name="settings">Paramètres</string>
     <string name="new_password">Nouveau Mot de Passe</string>
     <string name="language">Langue</string>
-    <string name="log_out">Déconnexion</string>
+    <string name="log_out">Se déconnecter</string>
     <string name="motion">Mouvement</string>
     <string name="smoke">Fumée</string>
     <string name="submit">soumettre</string>
     <string name="change_password">Changer le mot de passe</string>
+    <string name="home_monitor_system">Système de Surveillancer de la Maison</string>
 </resources>

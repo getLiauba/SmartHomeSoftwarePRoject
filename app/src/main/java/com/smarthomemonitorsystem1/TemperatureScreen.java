@@ -30,7 +30,8 @@ public class TemperatureScreen extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authStateListener;
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseTempReference;
+    private DatabaseReference databaseHumReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +51,8 @@ public class TemperatureScreen extends AppCompatActivity {
 
         userID = user.getUid();
 
-        databaseReference = firebaseDatabase.getReference("Member/" + userID + "/Temperature_Readings");
+        databaseTempReference = firebaseDatabase.getReference("Member/" + userID + "/Temperature_Readings");
+        databaseHumReference = firebaseDatabase.getReference("Member/" + userID + "/Humidity_Readings");
 
 
          authStateListener = new FirebaseAuth.AuthStateListener() {
@@ -65,11 +67,22 @@ public class TemperatureScreen extends AppCompatActivity {
                 }
             }
         };
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseTempReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                showData(dataSnapshot);
+                showDataTemp(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        databaseHumReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                showDataHum(dataSnapshot);
             }
 
             @Override
@@ -99,6 +112,18 @@ public class TemperatureScreen extends AppCompatActivity {
         });
     }
 
+    private void showDataHum(DataSnapshot dataSnapshot) {
+        for(DataSnapshot ds : dataSnapshot.getChildren()){
+            String hum_val = ds.getValue().toString();
+            Temp_UserInformation userInformationHum = new Temp_UserInformation();
+            userInformationHum.setHumidity("" + hum_val);
+            ArrayList<String> arrayHum = new ArrayList<>();
+            arrayHum.add(userInformationHum.getHumidity());
+            ArrayAdapter adapterHum = new ArrayAdapter(TemperatureScreen.this,android.R.layout.simple_list_item_1,arrayHum);
+            hum.setAdapter(adapterHum);
+        }
+    }
+
     @Override
     public void onStart() {
         super.onStart();
@@ -113,25 +138,24 @@ public class TemperatureScreen extends AppCompatActivity {
         }
     }
 
-    private void showData(DataSnapshot dataSnapshot) {
+    private void showDataTemp(DataSnapshot dataSnapshot) {
         for(DataSnapshot ds : dataSnapshot.getChildren()){
 
             toastMessage("Datasnapshot is getting children");
-            String val = ds.getValue().toString();
+            String temp_val = ds.getValue().toString();
 
-            Temp_UserInformation userInformation =  new Temp_UserInformation();
-            userInformation.setTemperature(""+val);
+            Temp_UserInformation userInformationTemp =  new Temp_UserInformation();
+
+            userInformationTemp.setTemperature("" + temp_val);
 
             ArrayList<String> arrayTemp = new ArrayList<>();
-            ArrayList<String> arrayHum = new ArrayList<>();
 
-            arrayTemp.add(userInformation.getTemperature());
-
+            arrayTemp.add(userInformationTemp.getTemperature());
 
             ArrayAdapter adapterTemp = new ArrayAdapter(TemperatureScreen.this, android.R.layout.simple_list_item_1,arrayTemp);
 
-
             temp.setAdapter(adapterTemp);
+
 
         }
     }
