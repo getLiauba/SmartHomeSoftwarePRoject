@@ -23,6 +23,7 @@
 
     <include layout="@layout/content_temperature_screen" />
 
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/HomeScreenButton"
         android:layout_width="wrap_content"

@@ -41,11 +41,17 @@ public class TemperatureScreen extends AppCompatActivity {
 
         temp = findViewById(R.id.actual_temp);
         hum = findViewById(R.id.actual_hum);
+
         auth = FirebaseAuth.getInstance();
+
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference();
+
         FirebaseUser user = auth.getCurrentUser();
+
         userID = user.getUid();
+
+        databaseReference = firebaseDatabase.getReference("Member/" + userID + "/Temperature_Readings");
+
 
          authStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -53,16 +59,16 @@ public class TemperatureScreen extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     Log.d(TAG, "onAuthStateChange:signed_in" + user.getUid());
-                    toastMessage("Getting information for: " + user.getEmail());
+                  //  toastMessage("Getting information for: " + user.getEmail());
                 } else {
                     Log.d(TAG, "onAuthStateChanged:signed_out");
                 }
             }
         };
-
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                 showData(dataSnapshot);
             }
 
@@ -109,26 +115,49 @@ public class TemperatureScreen extends AppCompatActivity {
 
     private void showData(DataSnapshot dataSnapshot) {
         for(DataSnapshot ds : dataSnapshot.getChildren()){
-            Temp_UserInformation userInformation =  new Temp_UserInformation();
-            userInformation.setTemperature(ds.child(userID).getValue(Temp_UserInformation.class).getTemperature());
-            userInformation.setHumidity(ds.child(userID).getValue(Temp_UserInformation.class).getHumidity());
 
-            Log.d(TAG, "showData: temperature: " + userInformation.getTemperature());
-            Log.d(TAG, "showData: humidity: " + userInformation.getHumidity());
+            toastMessage("Datasnapshot is getting children");
+            String val = ds.getValue().toString();
+
+            Temp_UserInformation userInformation =  new Temp_UserInformation();
+            userInformation.setTemperature(""+val);
 
             ArrayList<String> arrayTemp = new ArrayList<>();
             ArrayList<String> arrayHum = new ArrayList<>();
 
             arrayTemp.add(userInformation.getTemperature());
-            arrayHum.add(userInformation.getHumidity());
+
 
             ArrayAdapter adapterTemp = new ArrayAdapter(TemperatureScreen.this, android.R.layout.simple_list_item_1,arrayTemp);
-            ArrayAdapter adapterHum = new ArrayAdapter(TemperatureScreen.this, android.R.layout.simple_list_item_1,arrayHum);
+
 
             temp.setAdapter(adapterTemp);
-            hum.setAdapter(adapterHum);
+
         }
     }
+
+//    private void showData(DataSnapshot dataSnapshot) {
+//        for(DataSnapshot ds : dataSnapshot.getChildren()){
+//            Temp_UserInformation userInformation =  new Temp_UserInformation();
+//            userInformation.setTemperature(ds.child(userID).getValue(Temp_UserInformation.class).getTemperature());
+//            userInformation.setHumidity(ds.child(userID).getValue(Temp_UserInformation.class).getHumidity());
+//
+//            Log.d(TAG, "showData: temperature: " + userInformation.getTemperature());
+//            Log.d(TAG, "showData: humidity: " + userInformation.getHumidity());
+//
+//            ArrayList<String> arrayTemp = new ArrayList<>();
+//            ArrayList<String> arrayHum = new ArrayList<>();
+//
+//            arrayTemp.add(userInformation.getTemperature());
+//            arrayHum.add(userInformation.getHumidity());
+//
+//            ArrayAdapter adapterTemp = new ArrayAdapter(TemperatureScreen.this, android.R.layout.simple_list_item_1,arrayTemp);
+//            ArrayAdapter adapterHum = new ArrayAdapter(TemperatureScreen.this, android.R.layout.simple_list_item_1,arrayHum);
+//
+//            temp.setAdapter(adapterTemp);
+//            hum.setAdapter(adapterHum);
+//        }
+//    }
 
     public static Intent makeIntent(Context context){
         return new Intent(context, TemperatureScreen.class);
