@@ -33,7 +33,7 @@
         android:layout_width="337dp"
         android:layout_height="70dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:background="#F78D96"
         android:text="@string/smoke"
@@ -48,7 +48,7 @@
         android:layout_width="337dp"
         android:layout_height="70dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:background="#94D8C6"
         android:text="@string/temperatureValue"
@@ -61,13 +61,16 @@
         android:id="@+id/MotionButton"
         android:layout_width="337dp"
         android:layout_height="70dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="8dp"
         android:background="@android:color/holo_green_light"
         android:text="@string/motion"
         android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SmokeButton" />
+        app:layout_constraintTop_toBottomOf="@+id/SmokeButton"
+        app:layout_constraintVertical_bias="0.111" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
