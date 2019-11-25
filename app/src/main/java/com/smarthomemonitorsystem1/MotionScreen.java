@@ -3,6 +3,7 @@ package com.smarthomemonitorsystem1;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -16,7 +17,7 @@ import android.net.Uri;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Toast;
-
+import android.widget.Switch;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,6 +33,9 @@ import java.util.List;
 public class MotionScreen extends AppCompatActivity {
 
 
+    public static final String SHARED_PREFS = "sharedPRefs";
+    public static final String SWITCH1 = "switch1";
+
     private Uri mImageUri;
     private String[] imageUrls = new String[] {
       "https://cdn.pixabay.com/photo/2016/11/11/23/34/cat-1817970_960_720.jpg",
@@ -45,8 +49,12 @@ public class MotionScreen extends AppCompatActivity {
     ImageAdapter adpater;
 
 
+    private Switch mswitch;
+
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
+
+    private boolean SWITCHONOFF;
 
     List<Uploads> myuploads;
 
@@ -61,7 +69,7 @@ public class MotionScreen extends AppCompatActivity {
 
 
         viewPager = findViewById(R.id.viewPager);
-
+        mswitch = (Switch) findViewById(R.id.switch1);
 
         myuploads = new ArrayList<>();
 
@@ -101,9 +109,11 @@ public class MotionScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                saveData();
                 Intent HomeScreenIntent = HomeScreen.makeIntent(MotionScreen.this);
                 startActivity(HomeScreenIntent);
                 finish();
+
             }
         });
 
@@ -111,11 +121,17 @@ public class MotionScreen extends AppCompatActivity {
         SettingsScreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                saveData();
                 Intent SettingsScreenIntent = SettingsScreen.makeIntent(MotionScreen.this);
                 startActivity(SettingsScreenIntent);
                 finish();
             }
         });
+
+        loadData();
+        updateView();
+
+
 
     }   //End of On create
 
@@ -132,4 +148,56 @@ public class MotionScreen extends AppCompatActivity {
 
     }
 
+    public void saveData(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(SWITCH1,mswitch.isChecked());
+
+        editor.apply();
+    }
+
+    public  void loadData() {
+
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        SWITCHONOFF = sharedPreferences.getBoolean(SWITCH1,false);
+    }
+
+    public void updateView() {
+        mswitch.setChecked(SWITCHONOFF);
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

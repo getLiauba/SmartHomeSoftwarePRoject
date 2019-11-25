@@ -33,7 +33,7 @@
         android:background="@android:color/transparent"
         android:drawablePadding="12dp"
         android:ems="10"
-        android:hint="@string/email"
+        android:hint="Device Code"
         android:inputType="textEmailAddress"
         android:padding="12dp"
         android:textColor="@color/white"

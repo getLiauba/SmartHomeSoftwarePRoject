@@ -9,6 +9,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,12 +28,20 @@ public class AddDeviceScreen extends AppCompatActivity {
     EditText userEmail;
     FirebaseAuth auth = FirebaseAuth.getInstance();
 
+    String memberID;
+    private DatabaseReference myRef;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_device_screen);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        memberID = auth.getUid().toString();
+
+
 
         FloatingActionButton HomeScreenButton = findViewById(R.id.HomeScreenButton);
         HomeScreenButton.setOnClickListener(new View.OnClickListener() {
@@ -55,10 +65,18 @@ public class AddDeviceScreen extends AppCompatActivity {
 
         nextbut = (Button) findViewById(R.id.nxtbutton);
         userEmail = (EditText) findViewById(R.id.Email);
+
         nextbut.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
-                openResetPass();
+
+                myRef = FirebaseDatabase.getInstance().getReference("Member/"+ memberID + "/");
+
+                myRef.child(""+ "Devices/" + "" + userEmail.getText().toString() + "/Device code/").setValue("new device");
+
+
+             //   ).setValue(member);
+
             }
 
         });
@@ -69,19 +87,5 @@ public class AddDeviceScreen extends AppCompatActivity {
         return new Intent(context, AddDeviceScreen.class);
     }
 
-    public void openResetPass(){
-        auth.sendPasswordResetEmail(userEmail.getText().toString())
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Log.d("MapleLeaf", "Email sent.");
-                        }
-                    }
-                });
 
-        Intent AddDeviceIntent = FinalChangePasswordScreen.makeIntent(AddDeviceScreen.this);
-        startActivity(AddDeviceIntent);
-        finish();
-    }
 }
