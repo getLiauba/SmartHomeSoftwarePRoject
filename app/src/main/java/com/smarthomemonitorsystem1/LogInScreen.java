@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.smarthomemonitorsystem1.utils.PreferenceUtils;
 
 public class LogInScreen extends AppCompatActivity {
 
@@ -35,6 +36,7 @@ public class LogInScreen extends AppCompatActivity {
     private EditText password;
     private FirebaseAuth mAuth;
     private Button registerb;
+    private Context con;
     GoogleSignInClient mGoogleSignInClient;
 
     @Override
@@ -43,7 +45,7 @@ public class LogInScreen extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("LogIn");
-
+        con = this;
         findAllViewsfromLayout();
         handleLogin();
     }
@@ -54,7 +56,7 @@ public class LogInScreen extends AppCompatActivity {
             loginb.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    loginUser(String.valueOf(email.getText()), String.valueOf(password.getText()));
+                    loginUser(String.valueOf(email.getText()), String.valueOf(password.getText()), con);
                 }
             });
 
@@ -80,26 +82,42 @@ public class LogInScreen extends AppCompatActivity {
             email = findViewById(R.id.email1);
             password = findViewById(R.id.password1);
             registerb = findViewById(R.id.registerb);
+
+            if (PreferenceUtils.getEmail(this) != null ){
+                Intent intent = new Intent(LogInScreen.this, HomeScreen.class);
+                startActivity(intent);
+            }else{
+
+            }
+
         }
 
-        private void loginUser(String email, String password){
+        private void loginUser(final String email, final String password, final Context conn){
             // TODO: Login with Email and Password on Firebase.
+
+
+
             if (email.length()==0 || password.length()==0){
                 Toast.makeText(getApplicationContext(), "Email and/or password cannot be empty",
                         Toast.LENGTH_LONG).show();
                 return;
             }
+
+
+
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+
+
+                                PreferenceUtils.saveEmail(email,conn);
+                                PreferenceUtils.savePassword(password,conn);
+
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d("MapleLeaf", "signInWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
-
-
-
                                 Intent mainScreenIntent = HomeScreen.makeIntent(LogInScreen.this);
                                 startActivity(mainScreenIntent);
                                 finish();

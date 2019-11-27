@@ -41,7 +41,7 @@ public class Register extends AppCompatActivity {
     private int numPhotos = 0;
     private FirebaseAuth mAuth;
     private DatabaseReference myRef;
-    DataStructure mData;
+
 
     FirebaseAuth fAuth;
 
