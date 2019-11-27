@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.smarthomemonitorsystem1.utils.PreferenceUtils;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 public class SettingsScreen extends AppCompatActivity {
 
     private String mLanguageCode = "fr";
+    private Context con;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class SettingsScreen extends AppCompatActivity {
         setContentView(R.layout.activity_settings_screen);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        con = this;
 
 //        Button LanEng = findViewById(R.id.LanEng);
 //        LanEng.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +78,8 @@ public class SettingsScreen extends AppCompatActivity {
         LogoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                PreferenceUtils.savePassword(null,con);
+                PreferenceUtils.saveEmail(null,con);
                 Intent LogoutIntent = LogInScreen.makeIntent(SettingsScreen.this);
                 startActivity(LogoutIntent);
                 finish();
