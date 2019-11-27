@@ -137,50 +137,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerb"
         app:layout_constraintVertical_bias="0.111" />
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/or_sign_in_via"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/view8"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toEndOf="@+id/view7"
-        app:layout_constraintTop_toBottomOf="@+id/pButton" />
-
-    <View
-        android:id="@+id/view7"
-        android:layout_width="150dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="28dp"
-        android:background="@android:color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pButton" />
-
-    <View
-        android:id="@+id/view8"
-        android:layout_width="150dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="28dp"
-        android:background="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pButton" />
-
-    <com.google.android.gms.common.SignInButton
-
-        android:id="@+id/sign_in_button"
-        android:layout_width="wrap_content"
-        android:layout_height="52dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
