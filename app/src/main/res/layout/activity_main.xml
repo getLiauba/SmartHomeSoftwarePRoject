@@ -30,7 +30,7 @@
         android:background="@android:color/transparent"
         android:drawablePadding="12dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:padding="12dp"
         android:textColor="@color/white"
@@ -72,7 +72,7 @@
         android:background="@android:color/transparent"
         android:drawablePadding="16dp"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:maxLines="1"
         android:padding="16dp"
@@ -90,7 +90,8 @@
         android:layout_marginTop="20dp"
         android:background="@color/green"
         android:clickable="true"
-        android:text="Login"
+        android:focusable="true"
+        android:text="@string/login"
         android:textAllCaps="false"
         android:textSize="18sp"
         android:textStyle="normal"
@@ -107,7 +108,8 @@
         android:layout_marginTop="20dp"
         android:background="@color/ligthBlue"
         android:clickable="true"
-        android:text="Sign up"
+        android:focusable="true"
+        android:text="@string/sign_up"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18sp"
@@ -125,8 +127,9 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="8dp"
         android:clickable="true"
+        android:focusable="true"
         android:padding="16dp"
-        android:text="Forgot password?"
+        android:text="@string/forgot_password"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -134,6 +137,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerb"
         app:layout_constraintVertical_bias="0.111" />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/or_sign_in_via"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/view8"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toEndOf="@+id/view7"
+        app:layout_constraintTop_toBottomOf="@+id/pButton" />
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="150dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="28dp"
+        android:background="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pButton" />
+
+    <View
+        android:id="@+id/view8"
+        android:layout_width="150dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="28dp"
+        android:background="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pButton" />
+
+    <com.google.android.gms.common.SignInButton
+
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

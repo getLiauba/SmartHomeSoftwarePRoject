@@ -88,17 +88,12 @@ public class HomeScreen extends AppCompatActivity {
                     //deviceName = postSnapshot.getValue().toString();
                     deviceName = postSnapshot.getKey().toString();
                     System.out.println("The device name is --------------------" + postSnapshot.getKey());
-
                     list.add(deviceName);
-
                 }
-
                 CreateSpinner(list);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
 
@@ -150,38 +145,27 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
-
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-
                 editor.putInt("LastClick",position).commit();
                 Toast toast = Toast.makeText(HomeScreen.this, list.get(position), Toast.LENGTH_LONG);
                 toast.show();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
-
-
-
     }
-
 
     public static Intent makeIntent(Context context){
         return new Intent(context, HomeScreen.class);
     }
 
     public void CreateSpinner (List list) {
-
         //adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         adapter = new ArrayAdapter<List>(this,R.layout.support_simple_spinner_dropdown_item,list);
         spinner.setAdapter(adapter);
         spinner.setSelection(LastClick);
-
     }
 }

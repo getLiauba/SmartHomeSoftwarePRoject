@@ -11,6 +11,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -28,6 +32,7 @@ public class TemperatureScreen extends AppCompatActivity {
     private String userID;
     private TextView temp;
     private TextView hum;
+    private GraphView tempGraph;
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authStateListener;
@@ -43,6 +48,7 @@ public class TemperatureScreen extends AppCompatActivity {
 
         temp = findViewById(R.id.actual_gas);
         hum = findViewById(R.id.actual_hum);
+        tempGraph = findViewById(R.id.graph);
 
         auth = FirebaseAuth.getInstance();
 
@@ -54,6 +60,8 @@ public class TemperatureScreen extends AppCompatActivity {
 
         databaseTempReference = firebaseDatabase.getReference("Member/" + userID + "/Temperature_Readings");
         databaseHumReference = firebaseDatabase.getReference("Member/" + userID + "/Humidity_Readings");
+
+
 
 
          authStateListener = new FirebaseAuth.AuthStateListener() {
@@ -120,6 +128,7 @@ public class TemperatureScreen extends AppCompatActivity {
             Temp_UserInformation userInformationHum = new Temp_UserInformation();
             userInformationHum.setHumidity("" + hum_val);
             hum.setText(userInformationHum.getHumidity().toString());
+
             //ArrayList<String> arrayHum = new ArrayList<>();
            // arrayHum.add(userInformationHum.getHumidity());
             //ArrayAdapter adapterHum = new ArrayAdapter(TemperatureScreen.this,android.R.layout.simple_list_item_1,arrayHum);
@@ -145,9 +154,22 @@ public class TemperatureScreen extends AppCompatActivity {
         for(DataSnapshot ds : dataSnapshot.getChildren()){
             toastMessage("Datasnapshot is getting new Temperature reading.");
             String temp_val = ds.getValue().toString();
+            String temp_oldVal1 = ds.getValue().toString();
+            String temp_oldVal2 = ds.getValue().toString();
             Temp_UserInformation userInformationTemp =  new Temp_UserInformation();
+            //Temp_UserInformation userInformationOldTemp1 = new Temp_UserInformation();
+            //Temp_UserInformation userInformationOldTemp2 = new Temp_UserInformation();
             userInformationTemp.setTemperature("" + temp_val);
+            userInformationTemp.setOldValue(""+ temp_oldVal1);
+            userInformationTemp.setEvenOlder(""+ temp_oldVal2);
             temp.setText(userInformationTemp.getTemperature().toString());
+
+            LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
+                    new DataPoint(10, Double.parseDouble(temp_oldVal2)),
+                    new DataPoint(20, Double.parseDouble(temp_oldVal1)),
+                    new DataPoint(30, Double.parseDouble(temp_val))
+            });
+            tempGraph.addSeries(series);
             //ArrayList<String> arrayTemp = new ArrayList<>();
             //arrayTemp.add(userInformationTemp.getTemperature());
             //ArrayAdapter adapterTemp = new ArrayAdapter(TemperatureScreen.this, android.R.layout.simple_list_item_1,arrayTemp);

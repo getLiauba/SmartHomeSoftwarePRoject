@@ -74,7 +74,7 @@
 
     <EditText
         android:id="@+id/repass"
-        android:layout_width="wrap_content"
+        android:layout_width="465dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/re_enter_password"
@@ -89,7 +89,7 @@
 
     <EditText
         android:id="@+id/username"
-        android:layout_width="wrap_content"
+        android:layout_width="465dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/username"
@@ -119,7 +119,7 @@
 
     <EditText
         android:id="@+id/email2"
-        android:layout_width="wrap_content"
+        android:layout_width="465dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/email"
@@ -135,7 +135,7 @@
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="wrap_content"
+        android:layout_width="465dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/password"
@@ -175,7 +175,7 @@
         app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.956" />
+        app:layout_constraintVertical_bias="0.875" />
 
     <TextView
         android:id="@+id/logintext"

@@ -47,6 +47,8 @@
     <string name="back">Back</string>
     <string name="smoke_status">Smoke Status:</string>
     <string name="title_activity_add_device_screen">AddDeviceScreen</string>
+    <string name="sign_up">Sign up</string>
+    <string name="or_sign_in_via">Or Sign in Via</string>
 </resources>
 
 

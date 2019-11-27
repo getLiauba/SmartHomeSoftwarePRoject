@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Système Intelligent de Surveillance de la Maison</string>
     <string name="humidityValue">Humidité</string>
-    <string name="temperatureScreenTitle">" La Température et la Humidité"</string>
+    <string name="temperatureScreenTitle">" La Température et l'Humidité"</string>
     <string name="temperatureValue">Température</string>
     <string name="title_notifications">Notification</string>
     <string name="password">Mot de Passe</string>
@@ -37,4 +37,6 @@
     <string name="title_activity_change_password_screen">Écran pour changer le mot de passe</string>
     <string name="title_activity_final_change_password_screen">Écran pour changer le mot de passe</string>
     <string name="title_activity_add_device_screen">Écran pour ajouter un appareil</string>
+    <string name="sign_up">S\'inscrire</string>
+    <string name="or_sign_in_via">Ou s\'enregistrer via</string>
 </resources>

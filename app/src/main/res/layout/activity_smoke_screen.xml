@@ -8,19 +8,7 @@
     android:background="@drawable/blue_gradient_background"
     tools:context=".SmokeScreen">
 
-    <ListView
-        android:id="@+id/actual_gas"
-        android:layout_width="250dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="80dp"
-        android:textAllCaps="false"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.294" />
+    <include layout="@layout/content_smoke_screen" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/SettingsScreenButton"
@@ -44,48 +32,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_home_black_24dp" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="245dp"
-        android:layout_height="95dp"
-        android:text="@string/smoke_status"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.238" />
-
-    <ImageView
-        android:id="@+id/checkmark"
-        android:contentDescription="@string/image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/checkmark" />
-
-    <ImageView
-        android:id="@+id/x"
-        android:contentDescription="@string/image"
-        android:layout_width="224dp"
-        android:layout_height="200dp"
-        android:visibility="gone"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499"
-        app:srcCompat="@drawable/x" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

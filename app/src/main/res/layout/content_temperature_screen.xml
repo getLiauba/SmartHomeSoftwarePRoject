@@ -46,25 +46,25 @@
         app:layout_constraintTop_toBottomOf="@+id/Title_Underline5" />
 
     <TextView
-        android:id="@+id/actual_gas"
+        android:id="@+id/actual_hum"
         android:layout_width="250dp"
         android:layout_height="45dp"
-        android:layout_marginTop="168dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="52dp"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.59"
-        app:layout_constraintStart_toEndOf="@+id/TempStat"
-        app:layout_constraintTop_toBottomOf="@+id/Title_Underline5" />
+        app:layout_constraintHorizontal_bias="0.892"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/actual_gas" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="171dp"
         android:layout_height="56dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="208dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="60dp"
         android:text="@string/humidityValue"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -73,17 +73,28 @@
         app:layout_constraintTop_toBottomOf="@+id/TempStat" />
 
     <TextView
-        android:id="@+id/actual_hum"
+        android:id="@+id/actual_gas"
         android:layout_width="250dp"
         android:layout_height="45dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="72dp"
         android:layout_marginEnd="52dp"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.647"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/actual_gas" />
+        app:layout_constraintHorizontal_bias="0.735"
+        app:layout_constraintStart_toEndOf="@+id/TempStat"
+        app:layout_constraintTop_toBottomOf="@+id/Title_Underline5" />
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/graph"
+        android:layout_width="572dp"
+        android:layout_height="402dp"
+        android:layout_marginTop="68dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
