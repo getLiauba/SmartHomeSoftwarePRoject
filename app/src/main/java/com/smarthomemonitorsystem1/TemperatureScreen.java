@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TemperatureScreen extends AppCompatActivity {
     private static final String TAG = "TemperatureScreen";
@@ -151,11 +152,16 @@ public class TemperatureScreen extends AppCompatActivity {
     }
 
     private void showDataTemp(DataSnapshot dataSnapshot) {
+        String temp_val ="";
+        String temp_oldVal1 ="";
+        String temp_oldVal2 ="";
+        DataPoint[] dataPoints = new DataPoint[3];
+        int i =0;
         for(DataSnapshot ds : dataSnapshot.getChildren()){
             toastMessage("Datasnapshot is getting new Temperature reading.");
-            String temp_val = ds.getValue().toString();
-            String temp_oldVal1 = ds.getValue().toString();
-            String temp_oldVal2 = ds.getValue().toString();
+            temp_val = ds.getValue().toString();
+            //temp_oldVal1 = ds.getValue().toString();
+            //temp_oldVal2 = ds.getValue().toString();
             Temp_UserInformation userInformationTemp =  new Temp_UserInformation();
             //Temp_UserInformation userInformationOldTemp1 = new Temp_UserInformation();
             //Temp_UserInformation userInformationOldTemp2 = new Temp_UserInformation();
@@ -163,18 +169,29 @@ public class TemperatureScreen extends AppCompatActivity {
             userInformationTemp.setOldValue(""+ temp_oldVal1);
             userInformationTemp.setEvenOlder(""+ temp_oldVal2);
             temp.setText(userInformationTemp.getTemperature().toString());
+            dataPoints[i++] = (new DataPoint((i+1)*10, Double.parseDouble(temp_val)));
 
-            LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
+
+
+         /*   LineGraphSeries series = new LineGraphSeries(new DataPoint[] {
                     new DataPoint(10, Double.parseDouble(temp_oldVal2)),
                     new DataPoint(20, Double.parseDouble(temp_oldVal1)),
                     new DataPoint(30, Double.parseDouble(temp_val))
-            });
-            tempGraph.addSeries(series);
+            });*/
             //ArrayList<String> arrayTemp = new ArrayList<>();
             //arrayTemp.add(userInformationTemp.getTemperature());
             //ArrayAdapter adapterTemp = new ArrayAdapter(TemperatureScreen.this, android.R.layout.simple_list_item_1,arrayTemp);
             //temp.setAdapter(adapterTemp);
         }
+
+
+
+
+        //LineGraphSeries series = new LineGraphSeries();
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPoints);
+        tempGraph.removeAllSeries();
+        tempGraph.addSeries(series);
+
     }
 
 //    private void showData(DataSnapshot dataSnapshot) {
