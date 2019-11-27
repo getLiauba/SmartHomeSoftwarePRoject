@@ -43,7 +43,7 @@ public class LogInScreen extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("LogIn");
-        SignInButton signInButton = findViewById(R.id.sign_in_button);
+
         findAllViewsfromLayout();
         handleLogin();
     }
