@@ -14,7 +14,7 @@
         android:layout_height="51dp"
         android:layout_centerInParent="true"
         android:layout_marginTop="16dp"
-        android:text="Home Monitor System"
+        android:text="@string/home_monitor_system"
         android:textColor="@color/white"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"

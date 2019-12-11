@@ -10,10 +10,11 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="383dp"
-        android:layout_height="51dp"
+        android:layout_width="497dp"
+        android:layout_height="38dp"
         android:layout_centerInParent="true"
         android:layout_marginTop="24dp"
+        android:gravity="center"
         android:text="@string/home_monitor_system"
         android:textColor="@color/white"
         android:textSize="35sp"

@@ -125,16 +125,12 @@ public class TemperatureScreen extends AppCompatActivity {
 
     private void showDataHum(DataSnapshot dataSnapshot) {
         for(DataSnapshot ds : dataSnapshot.getChildren()){
-            toastMessage("Datasnapshot is getting new Humidity reading.");
+            //toastMessage("Datasnapshot is getting new Humidity reading.");
             String hum_val = ds.getValue().toString();
             Temp_UserInformation userInformationHum = new Temp_UserInformation();
             userInformationHum.setHumidity("" + hum_val);
             hum.setText(userInformationHum.getHumidity().toString());
-
-            //ArrayList<String> arrayHum = new ArrayList<>();
-           // arrayHum.add(userInformationHum.getHumidity());
-            //ArrayAdapter adapterHum = new ArrayAdapter(TemperatureScreen.this,android.R.layout.simple_list_item_1,arrayHum);
-            //hum.setAdapter(adapterHum);
+            
         }
     }
 
@@ -159,7 +155,7 @@ public class TemperatureScreen extends AppCompatActivity {
         DataPoint[] dataPoints = new DataPoint[3];
         int i =0;
         for(DataSnapshot ds : dataSnapshot.getChildren()){
-            toastMessage("Datasnapshot is getting new Temperature reading.");
+            //toastMessage("Datasnapshot is getting new Temperature reading.");
             temp_val = ds.getValue().toString();
             //temp_oldVal1 = ds.getValue().toString();
             //temp_oldVal2 = ds.getValue().toString();
@@ -171,61 +167,19 @@ public class TemperatureScreen extends AppCompatActivity {
             userInformationTemp.setEvenOlder(""+ temp_oldVal2);
             temp.setText(userInformationTemp.getTemperature().toString());
             dataPoints[i++] = (new DataPoint((i+1)*10, Double.parseDouble(temp_val)));
-
-
-
-         /*   LineGraphSeries series = new LineGraphSeries(new DataPoint[] {
-                    new DataPoint(10, Double.parseDouble(temp_oldVal2)),
-                    new DataPoint(20, Double.parseDouble(temp_oldVal1)),
-                    new DataPoint(30, Double.parseDouble(temp_val))
-            });*/
-            //ArrayList<String> arrayTemp = new ArrayList<>();
-            //arrayTemp.add(userInformationTemp.getTemperature());
-            //ArrayAdapter adapterTemp = new ArrayAdapter(TemperatureScreen.this, android.R.layout.simple_list_item_1,arrayTemp);
-            //temp.setAdapter(adapterTemp);
         }
 
-
-
-
-        //LineGraphSeries series = new LineGraphSeries();
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPoints);
         tempGraph.removeAllSeries();
         tempGraph.addSeries(series);
 
     }
 
-//    private void showData(DataSnapshot dataSnapshot) {
-//        for(DataSnapshot ds : dataSnapshot.getChildren()){
-//            Temp_UserInformation userInformation =  new Temp_UserInformation();
-//            userInformation.setTemperature(ds.child(userID).getValue(Temp_UserInformation.class).getTemperature());
-//            userInformation.setHumidity(ds.child(userID).getValue(Temp_UserInformation.class).getHumidity());
-//
-//            Log.d(TAG, "showData: temperature: " + userInformation.getTemperature());
-//            Log.d(TAG, "showData: humidity: " + userInformation.getHumidity());
-//
-//            ArrayList<String> arrayTemp = new ArrayList<>();
-//            ArrayList<String> arrayHum = new ArrayList<>();
-//
-//            arrayTemp.add(userInformation.getTemperature());
-//            arrayHum.add(userInformation.getHumidity());
-//
-//            ArrayAdapter adapterTemp = new ArrayAdapter(TemperatureScreen.this, android.R.layout.simple_list_item_1,arrayTemp);
-//            ArrayAdapter adapterHum = new ArrayAdapter(TemperatureScreen.this, android.R.layout.simple_list_item_1,arrayHum);
-//
-//            temp.setAdapter(adapterTemp);
-//            hum.setAdapter(adapterHum);
-//        }
-//    }
-
     public static Intent makeIntent(Context context){
         return new Intent(context, TemperatureScreen.class);
     }
 
-    private void toastMessage(String message){
-
-        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
-
-    }
-
+   // private void toastMessage(String message){
+        //Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
+    //}
 }
