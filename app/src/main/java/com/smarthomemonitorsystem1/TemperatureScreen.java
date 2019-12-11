@@ -47,22 +47,23 @@ public class TemperatureScreen extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Intent intent = getIntent();
+        String deviceName = intent.getStringExtra(HomeScreen.EXTRA_NAME);
+
         temp = findViewById(R.id.actual_gas);
         hum = findViewById(R.id.actual_hum);
         tempGraph = findViewById(R.id.graph);
-
         auth = FirebaseAuth.getInstance();
-
         firebaseDatabase = FirebaseDatabase.getInstance();
 
         FirebaseUser user = auth.getCurrentUser();
 
         userID = user.getUid();
 
-        databaseTempReference = firebaseDatabase.getReference("Member/" + userID + "/Temperature_Readings");
-        databaseHumReference = firebaseDatabase.getReference("Member/" + userID + "/Humidity_Readings");
+        databaseTempReference = firebaseDatabase.getReference("Member/" + userID + "/Devices/" + deviceName + "/Temperature_Readings");
+        databaseHumReference = firebaseDatabase.getReference("Member/" + userID + "/Devices/" + deviceName + "/Humidity_Readings");
 
-
+        System.out.println("-------------------------------" + deviceName +"--------------");
 
 
          authStateListener = new FirebaseAuth.AuthStateListener() {

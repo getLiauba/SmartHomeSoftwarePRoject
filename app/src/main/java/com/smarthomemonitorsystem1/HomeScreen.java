@@ -100,6 +100,7 @@ public class HomeScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent THScreenIntent = TemperatureScreen.makeIntent(HomeScreen.this);
+                THScreenIntent.putExtra(EXTRA_NAME,deviceName);
                 startActivity(THScreenIntent);
                 finish();
             }
