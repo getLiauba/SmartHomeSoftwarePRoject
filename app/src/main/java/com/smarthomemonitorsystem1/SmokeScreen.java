@@ -35,11 +35,14 @@ public class SmokeScreen extends AppCompatActivity {
     private DatabaseReference databaseHumReference;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_smoke_screen);
+
+        Intent intent = getIntent();
+        String deviceName = intent.getStringExtra(HomeScreen.EXTRA_NAME);
+        System.out.println("------------------- ----- The device name is :" + deviceName);
 
 
         auth = FirebaseAuth.getInstance();
@@ -48,7 +51,7 @@ public class SmokeScreen extends AppCompatActivity {
         userID = user.getUid();
         gas = findViewById(R.id.actual_gas);
 
-        databaseTempReference = firebaseDatabase.getReference("Member/" + userID + "/Gas_Readings");
+        databaseTempReference = firebaseDatabase.getReference("Member/" + userID + "/Devices/" + deviceName + "/Gas_Readings");
 
 
         authStateListener = new FirebaseAuth.AuthStateListener() {
@@ -63,7 +66,6 @@ public class SmokeScreen extends AppCompatActivity {
                 }
             }
         };
-
 
         databaseTempReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -116,7 +118,7 @@ public class SmokeScreen extends AppCompatActivity {
     private void showDataGas(DataSnapshot dataSnapshot) {
         for(DataSnapshot ds : dataSnapshot.getChildren()){
 
-            toastMessage("Datasnapshot is getting new Smoke reading.");
+            toastMessage("Datasnapshot is getting new Smoke reading----------------------------------." + ds.getValue().toString());
             String gas_val = ds.getValue().toString();
             int gasvalue = Integer.parseInt(gas_val);
 

@@ -31,8 +31,6 @@ import java.util.List;
 
 public class HomeScreen extends AppCompatActivity {
 
-
-
     SharedPreferences LastSelect;
     SharedPreferences.Editor editor;
 
@@ -44,8 +42,8 @@ public class HomeScreen extends AppCompatActivity {
     private List<String> list;
     String deviceName;
 
+    public static final String EXTRA_NAME = "com.smarthomemonitor";
     int LastClick;
-
 
     FirebaseAuth auth;
 
@@ -60,16 +58,11 @@ public class HomeScreen extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
 
-
-
         LastSelect = getSharedPreferences("LastSetting",Context.MODE_PRIVATE);
 
         editor = LastSelect.edit();
 
         LastClick = LastSelect.getInt("LastClick",0);
-
-
-
 
          list = new ArrayList<>();
 
@@ -79,16 +72,21 @@ public class HomeScreen extends AppCompatActivity {
         System.out.println("The device name is --------------------" + auth.getUid());
 
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+                list.clear();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     System.out.println("-----------------------------------SnapShot loop -----------------------------------------------------");
 
                     //deviceName = postSnapshot.getValue().toString();
                     deviceName = postSnapshot.getKey().toString();
+
                     System.out.println("The device name is --------------------" + postSnapshot.getKey());
+
                     list.add(deviceName);
+
                 }
                 CreateSpinner(list);
             }
@@ -112,6 +110,7 @@ public class HomeScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent SmokeScreenIntent = SmokeScreen.makeIntent(HomeScreen.this);
+                SmokeScreenIntent.putExtra(EXTRA_NAME,deviceName);
                 startActivity(SmokeScreenIntent);
                 finish();
             }
@@ -146,11 +145,14 @@ public class HomeScreen extends AppCompatActivity {
         });
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
                 editor.putInt("LastClick",position).commit();
-                Toast toast = Toast.makeText(HomeScreen.this, list.get(position), Toast.LENGTH_LONG);
-                toast.show();
+                deviceName = list.get(position).toString();
+             //   Toast toast = Toast.makeText(HomeScreen.this, list.get(position), Toast.LENGTH_LONG);
+             //   toast.show();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -163,6 +165,7 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void CreateSpinner (List list) {
+
         //adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         adapter = new ArrayAdapter<List>(this,R.layout.support_simple_spinner_dropdown_item,list);
         spinner.setAdapter(adapter);
