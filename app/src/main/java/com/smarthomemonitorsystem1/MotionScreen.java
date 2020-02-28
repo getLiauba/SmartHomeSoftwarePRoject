@@ -19,6 +19,7 @@ import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 import android.widget.Switch;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,6 +34,7 @@ import java.util.List;
 public class MotionScreen extends AppCompatActivity {
 
 
+    private DatabaseReference myRef;
     public static final String SHARED_PREFS = "sharedPRefs";
     public static final String SWITCH1 = "switch1";
 
@@ -46,8 +48,12 @@ public class MotionScreen extends AppCompatActivity {
 
     ViewPager viewPager;
 
+    String memberID;
     ImageAdapter adpater;
 
+    FirebaseAuth auth = FirebaseAuth.getInstance();
+
+    int ison = 0;
 
     private Switch mswitch;
 
@@ -62,6 +68,7 @@ public class MotionScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        memberID = auth.getUid().toString();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_motion_screen);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -103,6 +110,38 @@ public class MotionScreen extends AppCompatActivity {
 
             }
         });
+
+        mswitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                saveData();
+
+
+
+
+
+                System.out.println("The TOGGLE BUTTON HAS BEEN CHANGED");
+                myRef = FirebaseDatabase.getInstance().getReference("Member/"+ memberID + "/Devices/Lucas's Room/MotionDectection");
+
+
+                if (mswitch.isChecked()) {
+
+
+                    myRef.setValue(1);
+                    System.out.println("You turned the switch on!");
+                } else {
+
+                    myRef.setValue(0);
+                    System.out.println("You turned the switch OFF!");
+                }
+
+
+            }
+        });
+
+
 
         FloatingActionButton HomeScreenButton = findViewById(R.id.HomeScreenButton);
         HomeScreenButton.setOnClickListener(new View.OnClickListener() {
