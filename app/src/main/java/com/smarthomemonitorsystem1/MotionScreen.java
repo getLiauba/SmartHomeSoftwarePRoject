@@ -75,6 +75,7 @@ public class MotionScreen extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
+        //Hello world
         viewPager = findViewById(R.id.viewPager);
         mswitch = (Switch) findViewById(R.id.switch1);
 
