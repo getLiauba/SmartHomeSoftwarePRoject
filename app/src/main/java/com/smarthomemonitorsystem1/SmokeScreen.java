@@ -31,8 +31,8 @@ public class SmokeScreen extends AppCompatActivity {
     private String userID;
     private ListView gas;
     private FirebaseAuth.AuthStateListener authStateListener;
-    private DatabaseReference databaseTempReference;
-    private DatabaseReference databaseHumReference;
+    private DatabaseReference databaseGasReference;
+
 
 
     @Override
@@ -51,7 +51,7 @@ public class SmokeScreen extends AppCompatActivity {
         userID = user.getUid();
         gas = findViewById(R.id.actual_gas);
 
-        databaseTempReference = firebaseDatabase.getReference("Member/" + userID + "/Devices/" + deviceName + "/Gas_Readings");
+        databaseGasReference = firebaseDatabase.getReference("Member/" + userID + "/Devices/" + deviceName + "/Gas_Readings");
 
 
         authStateListener = new FirebaseAuth.AuthStateListener() {
@@ -67,7 +67,7 @@ public class SmokeScreen extends AppCompatActivity {
             }
         };
 
-        databaseTempReference.addValueEventListener(new ValueEventListener() {
+        databaseGasReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -122,7 +122,7 @@ public class SmokeScreen extends AppCompatActivity {
             String gas_val = ds.getValue().toString();
             int gasvalue = Integer.parseInt(gas_val);
 
-            if(gasvalue >= 1100) {
+            if(gasvalue >= 600) {
 
                 findViewById(R.id.x).setVisibility(View.VISIBLE);
                 findViewById(R.id.checkmark).setVisibility(View.GONE);

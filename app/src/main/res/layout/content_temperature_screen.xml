@@ -20,7 +20,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />]
+
+
+    <TextView
+        android:id="@+id/actual_hum"
+        android:layout_width="132dp"
+        android:layout_height="65dp"
+        android:layout_marginEnd="30dp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.328" />
 
     <View
         android:id="@+id/Title_Underline5"
@@ -45,19 +61,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Title_Underline5" />
 
-    <TextView
-        android:id="@+id/actual_hum"
-        android:layout_width="250dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="52dp"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.892"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/actual_gas" />
 
     <TextView
         android:id="@+id/textView5"
@@ -74,10 +77,10 @@
 
     <TextView
         android:id="@+id/actual_gas"
-        android:layout_width="250dp"
-        android:layout_height="45dp"
+        android:layout_width="118dp"
+        android:layout_height="61dp"
         android:layout_marginTop="72dp"
-        android:layout_marginEnd="52dp"
+        android:layout_marginEnd="30dp"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="25sp"
@@ -88,8 +91,8 @@
 
     <com.jjoe64.graphview.GraphView
         android:id="@+id/graph"
-        android:layout_width="572dp"
-        android:layout_height="402dp"
+        android:layout_width="422dp"
+        android:layout_height="378dp"
         android:layout_marginTop="68dp"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"

@@ -124,7 +124,7 @@ public class LogInScreen extends AppCompatActivity {
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Log.w("MapleLeaf", "signInWithEmail:failure", task.getException());
-                                Toast.makeText(getApplicationContext(), "Authentication failed.",
+                                Toast.makeText(getApplicationContext(), "Incorrect Email or Password, Try Again!",
                                         Toast.LENGTH_LONG).show();
                             }
                         }
