@@ -5,15 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".finalForgotPass"
-    android:background="@drawable/blue_gradient_background">
+    android:background="@color/background">
 
     <Button
         android:id="@+id/backb1"
         style="@style/TextAppearance.AppCompat.Body1"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:background="#FCFCFC"
+        android:background="@drawable/roundedbutton"
         android:clickable="true"
+        android:textColor="#ffcc3b"
         android:focusable="true"
         android:text="@string/back"
         android:textAllCaps="false"
@@ -31,10 +32,11 @@
         style="@style/TextAppearance.AppCompat.Body1"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:background="@color/green"
+        android:background="@drawable/roundedbutton"
         android:clickable="true"
         android:focusable="true"
         android:text="@string/login"
+        android:textColor="#ffcc3b"
         android:textAllCaps="false"
         android:textSize="18sp"
         android:textStyle="normal"
@@ -52,13 +54,14 @@
         android:layout_gravity="center_horizontal"
         android:gravity="center"
         android:text="@string/instructions_sent_to_email"
-        android:textColor="#FFFFFF"
+        android:textAlignment="center"
+        android:textColor="#ffcc3b"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/loginb2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.505" />
+        app:layout_constraintVertical_bias="0.94" />
 
     <ImageView
         android:id="@+id/imageView3"

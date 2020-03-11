@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/blue_gradient_background"/>
+    <item android:drawable="@color/background"/>
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/lock2_2"/>
+            android:src="@drawable/lock2_2"
+            />
     </item>
 </layer-list>
+

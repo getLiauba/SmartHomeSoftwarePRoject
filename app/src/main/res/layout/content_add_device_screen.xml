@@ -7,7 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".AddDeviceScreen"
     tools:showIn="@layout/activity_add_device_screen"
-    android:background="@drawable/blue_gradient_background">
+    android:background="@color/background">
 
     <TextView
         android:id="@+id/textView"
@@ -15,15 +15,15 @@
         android:layout_height="38dp"
         android:layout_gravity="center_horizontal"
         android:gravity="center"
-        android:text="@string/add_a_divice"
-        android:textColor="#FFFFFF"
+        android:text="Enter Location"
+        android:textColor="#ffcc3b"
+
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.309" />
+        app:layout_constraintVertical_bias="0.469" />
 
     <EditText
         android:id="@+id/Email"
@@ -33,17 +33,16 @@
         android:background="@android:color/transparent"
         android:drawablePadding="12dp"
         android:ems="10"
-        android:hint="Device Code"
+        android:hint="Location"
         android:inputType="textEmailAddress"
         android:padding="12dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.581"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.455" />
+        app:layout_constraintVertical_bias="0.553" />
 
     <View
         android:layout_width="255sp"
@@ -52,10 +51,9 @@
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.569"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.486" />
+        app:layout_constraintVertical_bias="0.582" />
 
     <Button
         android:id="@+id/nxtbutton"
@@ -63,16 +61,16 @@
         android:layout_width="262dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
-        android:background="@color/green"
+        android:background="@drawable/roundedbutton"
         android:clickable="true"
         android:focusable="true"
         android:text="@string/next"
         android:textAllCaps="false"
+        android:textColor="#ffcc3b"
         android:textSize="18sp"
         android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.575"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.635" />
@@ -81,11 +79,11 @@
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginStart="16dp"
         android:background="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.846" />
+        app:layout_constraintVertical_bias="0.88" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

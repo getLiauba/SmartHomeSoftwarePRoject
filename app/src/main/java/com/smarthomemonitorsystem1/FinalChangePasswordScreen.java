@@ -18,8 +18,7 @@ public class FinalChangePasswordScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_change_password_screen);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
         FloatingActionButton HomeScreenButton = findViewById(R.id.HomeScreenButton);
         HomeScreenButton.setOnClickListener(new View.OnClickListener() {

@@ -8,6 +8,7 @@ import android.content.ContentResolver;
 import android.content.SharedPreferences;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.content.Context;
 import android.content.Intent;
@@ -51,12 +52,11 @@ public class HomeScreen extends AppCompatActivity {
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+
 
         spinner = (Spinner) findViewById(R.id.spinner);
         auth = FirebaseAuth.getInstance();
 
-        setSupportActionBar(toolbar);
 
         LastSelect = getSharedPreferences("LastSetting",Context.MODE_PRIVATE);
 
@@ -95,7 +95,7 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
-        Button tempButton = findViewById(R.id.TemperatureButton);
+        ImageButton tempButton = findViewById(R.id.TemperatureButton);
         tempButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,7 +106,7 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
-        Button smokeButton = findViewById(R.id.SmokeButton);
+        ImageButton smokeButton = findViewById(R.id.SmokeButton);
         smokeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,7 +117,7 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
-        Button MotionButton = findViewById(R.id.MotionButton);
+        ImageButton MotionButton = findViewById(R.id.MotionButton);
         MotionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -168,7 +168,7 @@ public class HomeScreen extends AppCompatActivity {
     public void CreateSpinner (List list) {
 
         //adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        adapter = new ArrayAdapter<List>(this,R.layout.support_simple_spinner_dropdown_item,list);
+        adapter = new ArrayAdapter<List>(this,R.layout.spinnerview,list);
         spinner.setAdapter(adapter);
         spinner.setSelection(LastClick);
     }

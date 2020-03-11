@@ -8,58 +8,51 @@
     tools:context=".SmokeScreen"
     tools:showIn="@layout/activity_smoke_screen">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="212dp"
-        android:layout_height="53dp"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="24dp"
-        android:text="@string/smoke"
-        android:textColor="@color/white"
-        android:textSize="35sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.614"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <View
-        android:id="@+id/view11"
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:background="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:id="@+id/view15"
+        android:layout_width="338dp"
+        android:layout_height="62dp"
+        android:background="@drawable/roundedbutton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.383"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.234" />
 
     <ImageView
         android:id="@+id/checkmark"
-        android:contentDescription="@string/image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/image"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view15"
+        app:layout_constraintVertical_bias="0.882"
         app:srcCompat="@drawable/checkmark" />
 
     <ImageView
         android:id="@+id/x"
-        android:contentDescription="@string/image"
-        android:layout_width="224dp"
-        android:layout_height="200dp"
-        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:contentDescription="@string/image"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499"
+        app:layout_constraintTop_toBottomOf="@+id/view15"
+        app:layout_constraintVertical_bias="0.882"
         app:srcCompat="@drawable/x" />
+
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="245dp"
-        android:layout_height="95dp"
+        android:layout_width="215dp"
+        android:layout_height="42dp"
         android:text="@string/smoke_status"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
@@ -67,22 +60,35 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.238" />
+        app:layout_constraintVertical_bias="0.242" />
 
     <ListView
         android:id="@+id/actual_gas"
-        android:layout_width="250dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="80dp"
+        android:layout_width="140dp"
+        android:layout_height="65dp"
         android:textAllCaps="false"
-        android:textSize="25sp"
+        android:textColor="@color/white"
+        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.959"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.294" />
+        app:layout_constraintVertical_bias="0.231" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="384dp"
+        android:layout_height="117dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.592"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.011"
+        app:srcCompat="@drawable/smokeimg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

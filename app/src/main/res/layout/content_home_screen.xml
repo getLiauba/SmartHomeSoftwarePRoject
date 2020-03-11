@@ -4,86 +4,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".HomeScreen"
     tools:showIn="@layout/activity_home_screen">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="383dp"
-        android:layout_height="51dp"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="16dp"
-        android:text="@string/home_monitor_system"
-        android:textColor="@color/white"
-        android:textSize="35sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:layout_marginTop="5dp"
-        android:background="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.099" />
-
-
-    <Button
+    <ImageButton
         android:id="@+id/SmokeButton"
-        android:layout_width="359dp"
+        android:layout_width="360dp"
         android:layout_height="101dp"
-        android:layout_marginTop="80dp"
-        android:background="#F78D96"
-        android:text="@string/smoke"
-        android:textSize="40sp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/roundedbutton"
+        android:padding="20dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/smokeimg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintHorizontal_bias="0.519"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TemperatureButton" />
 
-    <Button
-        android:id="@+id/TemperatureButton"
-        android:layout_width="359dp"
-        android:layout_height="101dp"
-        android:layout_marginTop="192dp"
-        android:background="#94D8C6"
-        android:text="@string/temperatureValue"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <Button
-        android:id="@+id/MotionButton"
-        android:layout_width="359dp"
+
+    <ImageButton
+        android:id="@+id/TemperatureButton"
+        android:layout_width="360dp"
         android:layout_height="101dp"
-        android:layout_marginTop="46dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/holo_green_light"
-        android:text="@string/motion"
-        android:textSize="40sp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/roundedbutton"
+        android:padding="20dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/temperature"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintVertical_bias="0.084" />
+
+    <ImageButton
+        android:id="@+id/MotionButton"
+        android:layout_width="360dp"
+        android:layout_height="101dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/roundedbutton"
+        android:padding="20dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/motionimg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.519"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SmokeButton"
-        app:layout_constraintVertical_bias="0.259" />
+        app:layout_constraintVertical_bias="0.184" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="166dp"
         android:layout_height="33dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="152dp"
+        android:layout_marginTop="164dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/roundedbutton"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="169dp"
+        android:layout_height="26dp"
+        android:text="Device Location"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.177" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/homemonitorimg" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,7 +34,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:padding="16dp"
-        android:src="@drawable/lock2"
+        android:src="@drawable/lock2_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

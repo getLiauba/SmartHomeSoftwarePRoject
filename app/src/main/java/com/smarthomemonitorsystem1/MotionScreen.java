@@ -71,8 +71,6 @@ public class MotionScreen extends AppCompatActivity {
         memberID = auth.getUid().toString();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_motion_screen);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
 
         //Hello world

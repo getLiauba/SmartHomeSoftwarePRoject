@@ -51,6 +51,7 @@ public class SmokeScreen extends AppCompatActivity {
         userID = user.getUid();
         gas = findViewById(R.id.actual_gas);
 
+
         databaseGasReference = firebaseDatabase.getReference("Member/" + userID + "/Devices/" + deviceName + "/Gas_Readings");
 
 
@@ -136,8 +137,8 @@ public class SmokeScreen extends AppCompatActivity {
             userInformationgas.setGasInfo("" + gas_val);
             ArrayList<String> arraygas = new ArrayList<>();
             arraygas.add(userInformationgas.getGasInfo());
-            ArrayAdapter adaptergas = new ArrayAdapter(SmokeScreen.this, android.R.layout.simple_list_item_1,arraygas);
-            gas.setAdapter(adaptergas);
+            ArrayAdapter adaptergas = new ArrayAdapter(SmokeScreen.this, R.layout.mytextview,arraygas);
+            gas.setAdapter (adaptergas);
         }
     }
 

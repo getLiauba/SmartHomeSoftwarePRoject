@@ -5,7 +5,7 @@
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blue_gradient_background"
+    android:background="@color/background"
     tools:context=".SmokeScreen">
 
     <include layout="@layout/content_smoke_screen" />
@@ -17,6 +17,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        app:backgroundTint="#ffcc3b"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_settings_black_24dp" />
@@ -29,6 +30,7 @@
         android:layout_margin="@dimen/fab_margin"
         android:layout_marginStart="136dp"
         android:layout_marginBottom="72dp"
+        app:backgroundTint="#ffcc3b"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_home_black_24dp" />
