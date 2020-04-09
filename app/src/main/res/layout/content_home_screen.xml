@@ -14,17 +14,15 @@
         android:id="@+id/SmokeButton"
         android:layout_width="360dp"
         android:layout_height="101dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/roundedbutton"
         android:padding="20dp"
         android:scaleType="fitCenter"
         android:src="@drawable/smokeimg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TemperatureButton" />
-
-
 
     <ImageButton
         android:id="@+id/TemperatureButton"
@@ -53,21 +51,21 @@
         android:src="@drawable/motionimg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SmokeButton"
-        app:layout_constraintVertical_bias="0.184" />
+        app:layout_constraintVertical_bias="0.135" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="166dp"
         android:layout_height="33dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="172dp"
+        android:background="@drawable/roundedbutton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/roundedbutton"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
@@ -81,10 +79,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.177" />
+        app:layout_constraintVertical_bias="0.147" />
 
     <ImageView
         android:id="@+id/imageView5"

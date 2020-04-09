@@ -119,7 +119,7 @@ public class SmokeScreen extends AppCompatActivity {
     private void showDataGas(DataSnapshot dataSnapshot) {
         for(DataSnapshot ds : dataSnapshot.getChildren()){
 
-            toastMessage("Datasnapshot is getting new Smoke reading----------------------------------." + ds.getValue().toString());
+
             String gas_val = ds.getValue().toString();
             int gasvalue = Integer.parseInt(gas_val);
 

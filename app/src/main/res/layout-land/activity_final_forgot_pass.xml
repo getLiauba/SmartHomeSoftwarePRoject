@@ -8,7 +8,27 @@
     android:background="@color/background">
 
     <Button
-        android:id="@+id/loginb4"
+        android:id="@+id/backb1"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/roundedbutton"
+        android:clickable="true"
+        android:textColor="#ffcc3b"
+        android:focusable="true"
+        android:text="@string/back"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.753" />
+
+    <Button
+        android:id="@+id/loginb2"
         style="@style/TextAppearance.AppCompat.Body1"
         android:layout_width="300dp"
         android:layout_height="50dp"
@@ -16,53 +36,19 @@
         android:clickable="true"
         android:focusable="true"
         android:text="@string/login"
-        android:textAllCaps="false"
         android:textColor="#ffcc3b"
+        android:textAllCaps="false"
         android:textSize="18sp"
         android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.795" />
-
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="300dp"
-        android:layout_height="270dp"
-        android:layout_gravity="center_horizontal"
-        android:contentDescription="@string/image"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12"
-        app:srcCompat="@drawable/logo" />
-
-    <Button
-        android:id="@+id/backb"
-        style="@style/TextAppearance.AppCompat.Body1"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:background="@drawable/roundedbutton"
-        android:clickable="true"
-        android:focusable="true"
-        android:text="@string/back"
-        android:textAllCaps="false"
-        android:textColor="#ffcc3b"
-        android:textSize="18sp"
-        android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.955" />
+        app:layout_constraintVertical_bias="0.657" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/textView6"
         android:layout_width="321dp"
         android:layout_height="44dp"
         android:layout_gravity="center_horizontal"
@@ -76,4 +62,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.94" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:contentDescription="@string/image"
+        android:layout_width="300dp"
+        android:layout_height="270dp"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.167"
+        app:srcCompat="@drawable/logo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
